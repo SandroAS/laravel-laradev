@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use LaraDev\Property;
 
-
 class PropertyController extends Controller
 {
     public function index() 

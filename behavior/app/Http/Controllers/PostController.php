@@ -1,27 +1,12 @@
 <?php
 
-namespace LaraDev\Http\Controllers;
+namespace App\Http\Controllers;
 
+use App\Post;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-
-    public function indexRedirect()
-    {
-        return redirect()->route('posts.index');
-    }
-
-     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function premium()
-    {
-        echo "<h1>Listagem de artigos premium do meu site!</h1>";
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -29,7 +14,46 @@ class PostController extends Controller
      */
     public function index()
     {
-        echo "<h1>Listagem de artigos do meu site!</h1>";
+//        $posts = Post::where('created_at', '>=', date('Y-m-d H:i:s'))->orderBy('title','desc')->take(2)->get();
+//        foreach($posts as $post){
+//            echo "<h1>{$post->title}</h1>";
+//            echo "<h2>{$post->subtitle}</h2>";
+//            echo "<p>{$post->descriptions}</p>";
+//            echo "<hr>";
+//        }
+
+//        $post = Post::where('created_at', '>=', date('Y-m-d H:i:s'))->first();
+//        $post = Post::where('created_at', '>=', date('Y-m-d H:i:s'))->firstOrFail();
+
+//        echo "<h1>{$post->title}</h1>";
+//        echo "<h2>{$post->subtitle}</h2>";
+//        echo "<p>{$post->descriptions}</p>";
+//        echo "<hr>";
+
+//        $post = Post::find(1);
+//        echo "<h1>{$post->title}</h1>";
+//        echo "<h2>{$post->subtitle}</h2>";
+//        echo "<p>{$post->descriptions}</p>";
+//        echo "<hr>";
+
+//        $post = Post::findOrFail(99);
+//        echo "<h1>{$post->title}</h1>";
+//        echo "<h2>{$post->subtitle}</h2>";
+//        echo "<p>{$post->descriptions}</p>";
+//        echo "<hr>";
+
+//          $posts = Post::where('created_at', '>=', date('Y-m-d H:i:s'))->max('title');
+          //count()//max('title')//min - sum - avg// todos voltam um unico registro
+          
+//        foreach($posts as $post){
+//            echo "<h1>{$post->title}</h1>";
+//            echo "<h2>{$post->subtitle}</h2>";
+//            echo "<p>{$post->descriptions}</p>";
+//            echo "<hr>";
+//        }
+
+        $posts = Post::all();
+        return view('posts.index', ['posts' => $posts]);
     }
 
     /**
@@ -56,10 +80,10 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Post $post)
     {
         //
     }
@@ -67,10 +91,10 @@ class PostController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Post $post)
     {
         //
     }
@@ -79,10 +103,10 @@ class PostController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Post $post)
     {
         //
     }
@@ -90,10 +114,10 @@ class PostController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Post $post)
     {
         //
     }

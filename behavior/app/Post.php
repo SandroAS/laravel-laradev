@@ -12,4 +12,7 @@ class Post extends Model
     public $timestamps = true;
     //public const CREATED_AT = "creation_date";
     //public const UPDATED_AT = "last_update";
+    
+    protected $fillable = ['title', 'subtitle', 'description'];
+    protected $guarded = [];
 }

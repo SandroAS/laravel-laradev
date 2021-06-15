@@ -63,7 +63,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('posts.create');
     }
 
     /**
@@ -74,7 +74,39 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //Object -> Prop -> Save
+//        $post = new Post;
+//        $post->title = $request->title;
+//        $post->subtitle = $request->subtitle;
+//        $post->description = $request->description;
+//        $post->save();
+
+        /*Post::create([
+            'title' => $request->title,
+            'subtitle' => $request->subtitle,
+            'description' => $request->description
+        ]);*/
+
+        // devolve o primeiro registro no banco dentro do solicitado
+        // Post::firstOrNew([CONDIÇÃO],[SETAR OS CAMPOS]);
+        // $post = Post::firstOrNew([
+        //     'title' => 'teste2',
+        //     'description' => 'teste3'
+        // ],[
+        //     'subtitle' => 'teste2',
+        // ]);
+        // $post->save();
+        // var_dump($post);
+
+        $post = Post::firstOrCreate([
+            'title' => 'teste4',
+            'description' => 'teste4'
+        ],[
+            'subtitle' => 'teste4',
+        ]);
+        
+        var_dump(dd($post));
+
     }
 
     /**

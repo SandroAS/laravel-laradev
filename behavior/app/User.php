@@ -27,4 +27,9 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function addressDelivery(){
+        return $this->hasOne(Address::class, 'user','id');
+        //return $this->hasOne('App\Address');
+    }
 }

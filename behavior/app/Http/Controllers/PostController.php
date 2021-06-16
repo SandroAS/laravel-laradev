@@ -128,7 +128,8 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        //['variavel q tem q usar na view']
+        return view('posts.edit', ['post' => $post]);
     }
 
     /**
@@ -140,7 +141,24 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+        //$post = new Post;
+        $post = Post::find($post->id);
+        $post->title = $request->title;
+        $post->subtitle = $request->subtitle;
+        $post->description = $request->description;
+        $post->save();
+
+        // $post = Post::updateOrCreate([
+        //     'title' => 'teste5'
+        // ],[
+        //     'subtitle' => 'teste6',
+        //     'description' => 'teste6',
+        // ]);
+
+        //edita um coletivo -- update([CAMPO => EDIÇÃO])
+        //Post::where('created_at', '>=', date('Y-m-d H:i:s'))->update(['description' => 'teste']);
+
+        return redirect()->route('posts.index');
     }
 
     /**

@@ -75,11 +75,11 @@ class PostController extends Controller
     public function store(Request $request)
     {
         //Object -> Prop -> Save
-//        $post = new Post;
-//        $post->title = $request->title;
-//        $post->subtitle = $request->subtitle;
-//        $post->description = $request->description;
-//        $post->save();
+       $post = new Post;
+       $post->title = $request->title;
+       $post->subtitle = $request->subtitle;
+       $post->description = $request->description;
+       $post->save();
 
         /*Post::create([
             'title' => $request->title,
@@ -98,14 +98,14 @@ class PostController extends Controller
         // $post->save();
         // var_dump($post);
 
-        $post = Post::firstOrCreate([
-            'title' => 'teste4',
-            'description' => 'teste4'
-        ],[
-            'subtitle' => 'teste4',
-        ]);
+        // $post = Post::firstOrCreate([
+        //     'title' => 'teste4',
+        //     'description' => 'teste4'
+        // ],[
+        //     'subtitle' => 'teste4',
+        // ]);
         
-        var_dump(dd($post));
+        return redirect()->route('posts.index');
 
     }
 
@@ -169,6 +169,10 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        //Post::find($post->id)->delete();
+        //Post::destroy([2, 3]);
+        Post::destroy($post->id);
+        //Post::where('created_at', '>=', date('Y-m-d H:i:s'))->delete();
+        return redirect()->route('posts.index');
     }
 }

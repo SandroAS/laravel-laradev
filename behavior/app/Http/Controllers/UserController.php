@@ -62,14 +62,14 @@ class UserController extends Controller
             echo "Cidade/Estado: {$userAddress->city}/{$userAddress->state}<br>";
         }
 
-        $addressTest = new Address([
-            'address' => 'Rua dos Bobos 111',
-            'number' => '0',
-            'complement' => 'Apto 123',
-            'zipcode' => '88000-000',
-            'city' => 'Floripa',
-            'state' => 'SC'
-        ]);
+        // $addressTest = new Address([
+        //     'address' => 'Rua dos Bobos 111',
+        //     'number' => '0',
+        //     'complement' => 'Apto 123',
+        //     'zipcode' => '88000-000',
+        //     'city' => 'Floripa',
+        //     'state' => 'SC'
+        // ]);
 
         $address = new Address();
         $address->address = 'Rua dos Bobos 222';
@@ -119,6 +119,16 @@ class UserController extends Controller
                 echo "#{$post->id} Título: {$post->title}<br>";
                 echo "Subtítulo: {$post->subtitle}<br>";
                 echo "Conteúdo: {$post->description}<br><hr>";
+            }
+        }
+
+        $comments = $user->commentsOnMyPost()->get();
+
+        if($comments){
+            echo "<h1>Comentários nos meus Artigos</h1><br>";
+
+            foreach($comments as $comment){
+                echo "Post: #{$comment->post} User: #{$comment->user} {$comment->content}<br>";
             }
         }
     }

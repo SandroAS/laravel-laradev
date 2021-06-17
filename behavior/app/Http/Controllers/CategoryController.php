@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Post;
+use App\Category;
 use Illuminate\Http\Request;
 
-class PostController extends Controller
+class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -46,27 +46,20 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        $post = Post::find($id);
+        $category = Category::find($id);
 
-        echo "#{$post->id} Título: {$post->title}<br>";
-        echo "Subtítulo: {$post->subtitle}<br>";
-        echo "Conteúdo: {$post->description}<br><hr>";
+        echo "<h1>Categoria: $category->name</h1><br>";
 
-        $postAuthor = $post->author()->get()->first();
+        $Categoryposts = $category->posts()->get();
 
-        if($postAuthor){
-            echo "<h1>Dados do Usuário</h1><br>";
-            echo "Nome do usuário: {$postAuthor->name}<br>";
-            echo "E-mail: {$postAuthor->email}<br>";
-        }
+        if($Categoryposts){
 
-        $postCategories = $post->categories()->get();
-        
-        if($postCategories){
-            echo "<h1>Categorias</h1><br>";
+            echo "<h1>Artigos dessa categoria</h1><br>";
 
-            foreach($postCategories as $category){
-                echo "Categoria: #{$category->id} - {$category->name}<br>";
+            foreach($Categoryposts as $post){
+                echo "#{$post->id} Título: {$post->title}<br>";
+                echo "Subtítulo: {$post->subtitle}<br>";
+                echo "Conteúdo: {$post->description}<br><hr>";
             }
         }
     }

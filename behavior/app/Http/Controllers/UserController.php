@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Address;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -60,6 +61,55 @@ class UserController extends Controller
             echo "Complemento: {$userAddress->complement} CEP: {$userAddress->zipcode}<br>";
             echo "Cidade/Estado: {$userAddress->city}/{$userAddress->state}<br>";
         }
+
+        $addressTest = new Address([
+            'address' => 'Rua dos Bobos 111',
+            'number' => '0',
+            'complement' => 'Apto 123',
+            'zipcode' => '88000-000',
+            'city' => 'Floripa',
+            'state' => 'SC'
+        ]);
+
+        $address = new Address();
+        $address->address = 'Rua dos Bobos 222';
+        $address->number = '123';
+        $address->complement = 'Casa 2';
+        $address->zipcode = '87000-000';
+        $address->city = 'Florianópolis';
+        $address->state = 'Santa Catarina';
+
+        //$user->addressDelivery()->save($address);
+
+        //$user->addressDelivery()->saveMany([$addressTest, $address]);
+
+        // $user->addressDelivery()->create([ //modelo n valida na tratativa de dados
+        //     'address' => 'Rua dos Bobos 111',
+        //     'number' => '0',
+        //     'complement' => 'Apto 123',
+        //     'zipcode' => '88000-000',
+        //     'city' => 'Floripa',
+        //     'state' => 'SC'
+        // ]);
+
+        // $user->addressDelivery()->createMany([[
+        //     'address' => 'Rua dos Bobos 333',
+        //     'number' => '0',
+        //     'complement' => 'Apto 123',
+        //     'zipcode' => '88000-000',
+        //     'city' => 'Floripa',
+        //     'state' => 'SC'
+        // ], [
+        //     'address' => 'Rua dos Bobos 444',
+        //     'number' => '0',
+        //     'complement' => 'Apto 123',
+        //     'zipcode' => '88000-000',
+        //     'city' => 'Floripa',
+        //     'state' => 'SC'
+        // ]]);
+
+        $users = User::with('addressDelivery')->get(); //nao usar em loop ou pra renderizar mts dados numa unica pagina
+        dd($users);
     }
 
     /**

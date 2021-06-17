@@ -60,15 +60,20 @@ class PostController extends Controller
             echo "E-mail: {$postAuthor->email}<br>";
         }
 
-        $postCategories = $post->categories()->get();
+        $postCategories = $post->categories()->orderBy('id', 'ASC')->get();
         
         if($postCategories){
             echo "<h1>Categorias</h1><br>";
 
             foreach($postCategories as $category){
-                echo "Categoria: #{$category->id} - {$category->name}<br>";
+                echo "Categoria: #{$category->id} {$category->name}<br>";
             }
         }
+
+        //$post->categories()->attach([4]); //adiciona
+        //$post->categories()->detach([4]); //remove
+        //$post->categories()->sync([5, 10]); //remove td e adiciona
+        //$post->categories()->syncWithoutDetaching([5, 6, 7]); //adiciona sem repetir
     }
 
     /**

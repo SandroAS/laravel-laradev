@@ -51,7 +51,7 @@ class UserController extends Controller
 
         echo "<h1>Dados do Usuário</h1><br>";
         echo "Nome do usuário: {$user->name}<br>";
-        echo "E-mail: {$user->name}<br>";
+        echo "E-mail: {$user->email}<br>";
 
         $userAddress = $user->addressDelivery()->get()->first();
         
@@ -108,8 +108,19 @@ class UserController extends Controller
         //     'state' => 'SC'
         // ]]);
 
-        $users = User::with('addressDelivery')->get(); //nao usar em loop ou pra renderizar mts dados numa unica pagina
-        dd($users);
+        // $users = User::with('addressDelivery')->get(); //nao usar em loop ou pra renderizar mts dados numa unica pagina
+        // dd($users);
+
+        $posts = $user->posts()->orderBy('id', 'DESC')->take(2)->get();
+        if($posts){
+            echo "<h1>Artigos</h1><br>";
+
+            foreach($posts as $post){
+                echo "#{$post->id} Título: {$post->title}<br>";
+                echo "Subtítulo: {$post->subtitle}<br>";
+                echo "Conteúdo: {$post->description}<br><hr>";
+            }
+        }
     }
 
     /**

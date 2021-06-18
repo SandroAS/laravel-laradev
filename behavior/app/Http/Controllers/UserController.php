@@ -31,18 +31,26 @@ class UserController extends Controller
         //             ->orderBy('updated_at - created_at', 'ASC')
         //             ->get();
 
-        $users = DB::select(DB::raw('SELECT users.id, users.name, 
-                        CASE WHEN users.status = 1 
-                            THEN "ATIVO"
-                            ELSE "INATIVO" 
-                        END status_description 
-                        FROM users 
-                        WHERE (SELECT COUNT(1) FROM addresses a WHERE a.user = users.id) > 2 
-                            AND users.status = :userStatus
-                        ORDER BY updated_at - created_at ASC'), ['userStatus' => '1']
-                    );
-        foreach($users as $user){
-            echo "#{$user->id} Nome: {$user->name} {$user->status_description}<br>";
-        }
+        // $users = DB::select(DB::raw('SELECT users.id, users.name, 
+        //                 CASE WHEN users.status = 1 
+        //                     THEN "ATIVO"
+        //                     ELSE "INATIVO" 
+        //                 END status_description 
+        //                 FROM users 
+        //                 WHERE (SELECT COUNT(1) FROM addresses a WHERE a.user = users.id) > 2 
+        //                     AND users.status = :userStatus
+        //                 ORDER BY updated_at - created_at ASC'), ['userStatus' => '1']
+        //             );
+        // foreach($users as $user){
+        //     echo "#{$user->id} Nome: {$user->name} {$user->status_description}<br>";
+        // }
+
+        DB::table('users')->where('id','<', '500')->chunkById(100, function($users){
+            foreach($users as $user){
+                echo "#{$user->id} Nome: {$user->name} {$user->status}<br>";
+            }
+            
+            echo "Encerrou um ciclo!<br><br>";
+        });
     }
 }

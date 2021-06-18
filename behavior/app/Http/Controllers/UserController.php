@@ -157,7 +157,7 @@ class UserController extends Controller
             }
         }
 
-        $admins = User::students()->get();
+        $admins = User::admins()->get();
 
         if($admins){
             echo "<h1>Administradores</h1><br>";
@@ -167,6 +167,11 @@ class UserController extends Controller
                 echo "E-mail: {$admin->email}<br><br>";
             }
         }
+
+        $users = User::all();
+        var_dump($users->makeVisible('created_at')->toArray());
+        echo "<br><br>";
+        var_dump($users->makeHidden('created_at')->toJson(JSON_PRETTY_PRINT));
     }
 
     /**

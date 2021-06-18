@@ -132,9 +132,9 @@ class UserController extends Controller
         //     }
         // }
 
-        $user->comments()->create([
-            'content' => 'Teste de comentário no modelo de usuário'
-        ]);
+        // $user->comments()->create([
+        //     'content' => 'Teste de comentário no modelo de usuário'
+        // ]);
 
         $comments = $user->comments()->get();
 
@@ -143,6 +143,28 @@ class UserController extends Controller
 
             foreach($comments as $comment){
                 echo "Comentário: #{$comment->id} {$comment->content}<br>";
+            }
+        }
+
+        $students = User::students()->get();
+
+        if($students){
+            echo "<h1>Alunos</h1><br>";
+
+            foreach($students as $student){
+                echo "Nome do usuário: {$student->name}<br>";
+                echo "E-mail: {$student->email}<br><br>";
+            }
+        }
+
+        $admins = User::students()->get();
+
+        if($admins){
+            echo "<h1>Administradores</h1><br>";
+
+            foreach($admins as $admin){
+                echo "Nome do usuário: {$admin->name}<br>";
+                echo "E-mail: {$admin->email}<br><br>";
             }
         }
     }

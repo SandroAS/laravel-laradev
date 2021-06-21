@@ -11,8 +11,10 @@
 |
 */
 
+use App\Mail\welcomeLaraDev;
 use Illuminate\Contracts\Session\Session;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 
 Route::get('/', function () {
     return view('welcome');
@@ -71,5 +73,20 @@ Route::get('/session', function(){
     //session()->flash('message', 'O artigo foi publicado com sucesso!');
     //session()->reflash();
 
-    var_dump(dd(session()->all()));
+    var_dump(session()->all());
+});
+
+Route::get('/email', function(){
+
+    $user = new stdClass();
+    $user->name = "Gustavo Web";
+    $user->email = "sandroantoniosouza98@gmail.com";
+
+    $order = new stdClass();
+    $order->type = "billet";//tipo boleto
+    $order->due_at = "2021-01-10";
+    $order->value = 697;
+
+    //Mail::send(new welcomeLaraDev($user, $order));
+    return new welcomeLaraDev($user, $order);
 });

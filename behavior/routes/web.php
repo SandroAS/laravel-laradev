@@ -21,7 +21,7 @@ Route::get('/', function () {
 Route::get('/log', function (){
     //Log::channel()->info('teste');
     //Log::stack(['stack', 'daily'])->info('teste');
-    Log::stack(['daily'])->error('teste');
+    Log::stack(['daily'])->info('teste');
 });
 
 Route::get('/session', function(){
@@ -68,8 +68,8 @@ Route::get('/session', function(){
     //     echo "Esse índice não existe!";
     // }
 
-    session()->flash('message', 'O artigo foi publicado com sucesso!');
-    session()->reflash();
+    //session()->flash('message', 'O artigo foi publicado com sucesso!');
+    //session()->reflash();
 
     var_dump(dd(session()->all()));
 });

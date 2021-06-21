@@ -11,6 +11,7 @@
 |
 */
 
+//use App\Jobs\welcomeLaraDev as JobsWelcomeLaraDev;
 use App\Mail\welcomeLaraDev;
 use Illuminate\Contracts\Session\Session;
 use Illuminate\Support\Facades\Log;
@@ -88,5 +89,22 @@ Route::get('/email', function(){
     $order->value = 697;
 
     //Mail::send(new welcomeLaraDev($user, $order));
-    return new welcomeLaraDev($user, $order);
+    //return new welcomeLaraDev($user, $order);
+});
+
+Route::get('/email-queue', function(){
+
+    $user = new stdClass();
+    $user->name = "Gustavo Web";
+    $user->email = "sandroantoniosouza98@gmail.com";
+
+    $order = new stdClass();
+    $order->type = "billet";//tipo boleto
+    $order->due_at = "2021-01-10";
+    $order->value = 697;
+
+    //Mail::send(new welcomeLaraDev($user, $order));
+    //return new welcomeLaraDev($user, $order);
+
+    \App\Jobs\welcomeLaraDev::dispatch($user, $order)->delay(now()->addSeconds(15));
 });

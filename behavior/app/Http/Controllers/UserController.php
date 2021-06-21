@@ -71,20 +71,33 @@ class UserController extends Controller
         //     echo "#{$user->id} Nome: {$user->name} {$user->status}<br>";
         // }
 
-        $users = DB::table('users')
-                    ->select('users.id', 'users.name', 'users.status', 'addresses.address')
-                    //->leftJoin('addresses', 'users.id', '=', 'addresses.user')
-                    ->join('addresses', function($join){
-                        $join->on('users.id', '=', 'address.user')
-                            ->where('addresses.status', '=', '1');
-                    })
-                    ->orderby('users.id', 'asc')
-                    ->get();
+        // $users = DB::table('users')
+        //             ->select('users.id', 'users.name', 'users.status', 'addresses.address')
+        //             //->leftJoin('addresses', 'users.id', '=', 'addresses.user')
+        //             ->join('addresses', function($join){
+        //                 $join->on('users.id', '=', 'address.user')
+        //                     ->where('addresses.status', '=', '1');
+        //             })
+        //             ->orderby('users.id', 'asc')
+        //             ->get();
 
-        echo "Total de registros: {$users->count()}<br>";
+        // echo "Total de registros: {$users->count()}<br>";
 
-        foreach($users as $user){
-            echo "#{$user->id} Nome: {$user->name} {$user->status} {$user->address}<br>";
-        }
+        // foreach($users as $user){
+        //     echo "#{$user->id} Nome: {$user->name} {$user->status} {$user->address}<br>";
+        // }
+
+        // DB::table('users')->insert([
+        //     'name' => 'Gustavo Web',
+        //     'email' => 'cursos@upinside.com.br',
+        //     'password' => bcrypt('123456'),
+        //     'status' => 1
+        // ]);
+
+        // DB::table('users')->where('id', '=', '1001')->update([
+        //     'email' => 'gustavo@upinside.com.br'
+        // ]);
+
+        // DB::table('users')->where('id', '=', '1001')->delete();
     }
 }

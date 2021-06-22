@@ -148,3 +148,5 @@ Route::get('/files', function(){
 
     //var_dump($files, $allFiles, $directories, $allDirectories);
 });
+
+Route::resource('/imoveis', 'PropertyController');

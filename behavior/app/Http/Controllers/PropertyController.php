@@ -4,10 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Property;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 
 class PropertyController extends Controller
 {
+    public function middle(){
+        Log::info('Teste 2');
+        echo "seja bem vindo ao nosso teste de middleware!";
+    }
+
     /**
      * Display a listing of the resource.
      *

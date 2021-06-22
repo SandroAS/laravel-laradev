@@ -12,6 +12,8 @@
 */
 
 //use App\Jobs\welcomeLaraDev as JobsWelcomeLaraDev;
+
+use App\Http\Middleware\checkParam;
 use App\Mail\welcomeLaraDev;
 use Illuminate\Contracts\Session\Session;
 use Illuminate\Support\Facades\Log;
@@ -150,3 +152,6 @@ Route::get('/files', function(){
 });
 
 Route::resource('/imoveis', 'PropertyController');
+
+//Route::get('teste-middleware', 'PropertyController@middle')->middleware(checkParam::class);
+Route::get('teste-middleware', 'PropertyController@middle')->middleware('testemiddleware:admin,paid');

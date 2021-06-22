@@ -16,13 +16,32 @@ Route::get('/', function () {
     $user = new stdClass();
     $user->name = 'Gustavo Web';
     $user->birth = '1992-10-28';
-    $user->email = 'gustavo@upinside.com.br';
+    //$user->email = 'gustavo@upinside.com.br';
+
+    $courses = [
+        [
+            "id" => 1,
+            "name" => "Laravel Developer",
+            "tutor" => "Gustavo Web"
+        ],
+        [
+            "id" => 2,
+            "name" => "Bootstrp Builder",
+            "tutor" => "Gustavo Web"
+        ],
+        [
+            "id" => 2,
+            "name" => "Full-Stack PHP Developer",
+            "tutor" => "Robson V. Leite"
+        ]
+    ];
 
     $alert = "<div style='background-color: red;'>Teste</div>";
 
     return view('front.home', [
         'user' => $user,
-        'alert' =>$alert
+        'alert' => $alert,
+        'courses' => $courses
     ]);
 
     //return view('front.home')->with(['user' => $user]); //manda mais de um

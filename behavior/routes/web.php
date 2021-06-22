@@ -16,6 +16,7 @@ use App\Mail\welcomeLaraDev;
 use Illuminate\Contracts\Session\Session;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Storage;
 
 Route::get('/', function () {
     return view('welcome');
@@ -106,5 +107,44 @@ Route::get('/email-queue', function(){
     //Mail::send(new welcomeLaraDev($user, $order));
     //return new welcomeLaraDev($user, $order);
 
-    \App\Jobs\welcomeLaraDev::dispatch($user, $order)->delay(now()->addSeconds(15));
+    //\App\Jobs\welcomeLaraDev::dispatch($user, $order)->delay(now()->addSeconds(15));
+});
+
+Route::get('/files', function(){
+
+    $files = Storage::files('');
+    $allFiles = Storage::allFiles('');
+
+    //Storage::makeDirectory('public/students');
+
+    $directories = Storage::directories('');
+    $allDirectories = Storage::allDirectories('');
+
+    //Storage::makeDirectory('public/course');
+
+    //Storage::deleteDirectory('public/students');
+
+    //Storage::disk('public')->put('upinside.txt', 'O melhor curso do mercado é aqui!');
+    //Storage::put('upinside-treinamentos.txt', 'O melhor curso do mercado é aqui!');//local dentro de app
+
+    //echo Storage::get('upinside-treinamentos.txt');
+    //return Storage::download('upinside-treinamentos.txt');
+
+    // if(Storage::exists('upinside-treinamentos.txt')){
+    //     echo "O arquivo existe!";
+    // } else {
+    //     echo "O arquivo não existe!";
+    // }
+
+    //echo Storage::size('upinside-treinamentos.txt');
+    //echo Storage::lastModified('upinside-treinamentos.txt');
+
+    //Storage::prepend('upinside-treinamentos.txt', 'UpInside Treinamentos');
+    //Storage::append('upinside-treinamentos.txt', 'UpInside Treinamentos');
+
+    //Storage::copy('upinside-treinamentos.txt', 'public/upinside-treinamentos.txt');
+    //Storage::move('upinside-treinamentos.txt', 'public/upinside-treinamentos.txt');
+    //Storage::delete('upinside-treinamentos.txt', 'public/upinside-treinamentos.txt');
+
+    //var_dump($files, $allFiles, $directories, $allDirectories);
 });

@@ -13,6 +13,6 @@
 
 Route::get('/', function () {
     return view('template.form');
-});
+})->name('course.create');
 
 Route::post('/submit', 'CourseController@store')->name('course.store');

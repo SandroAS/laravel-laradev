@@ -122,6 +122,21 @@
                 @endforeach
             </div>
         </div>
+
+        <div class="row">
+            <div class="col-12">
+                @component('front.components.alert', ['type' => 'success', 'datetime' => date('d/m/Y H:i:s')])
+                Mensagem de Teste
+                @endcomponent
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                @alert(['type' => 'success', 'datetime' => date('d/m/Y H:i:s')])
+                Essa mensagem está sendo gerada atraves do meu componente
+                @endalert
+            </div>
+        </div>
     </div>
 
 

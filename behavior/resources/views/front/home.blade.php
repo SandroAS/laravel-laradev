@@ -15,7 +15,7 @@
         <div class="row pt-4">
             <div class="col-6">
                 <?php
-                echo "<h1>Sintaxe do PHP</h1><br>";
+                echo "<h1 class='gustavoweb'>Sintaxe do PHP</h1><br>";
             
                 echo "Meu nome é $user->name<br>";
                 echo "$alert";

@@ -49,3 +49,7 @@ Route::get('/', function () {
     //return view('front.home')->with(['user', $user])->with('tutor', $user);
     //return view('front.home', compact('user')); //passa a variavel com nome da variavel
 });
+
+Route::get('/curso', function(){
+    return view('front.course');
+});

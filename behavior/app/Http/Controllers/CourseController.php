@@ -35,6 +35,20 @@ class CourseController extends Controller
     public function store(Request $request)
     {
         var_dump($request->all());
+
+        $rules = [
+            'name' => 'required',
+            'tutor' => 'required|min:3|max:8',
+            'email' => 'required|email',
+        ];
+
+        $messages = [
+            'name.required' => 'Por favor, insira o nome do curso',
+            'email.required' => 'Por favor, insira o e-mail do curso',
+            'email.email' => 'Por favor, informe um endereço de e-mail que seja válido'
+        ];
+
+        $request->validate($rules, $messages);
     }
 
     /**

@@ -4,25 +4,25 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2a2760545b59a745dc557c5a4fff780b",
+    "content-hash": "f9ebae3dbdb264d9a7f6eeca05fed14b",
     "packages": [
         {
             "name": "coffeecode/optimizer",
-            "version": "2.0.2",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/robsonvleite/optimizer.git",
-                "reference": "53c00844e3316a74f8f076b0b325ceb140d41b70"
+                "reference": "51ccd9d240ca97eb9dea571b3e047b7b0c52b75a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/robsonvleite/optimizer/zipball/53c00844e3316a74f8f076b0b325ceb140d41b70",
-                "reference": "53c00844e3316a74f8f076b0b325ceb140d41b70",
+                "url": "https://api.github.com/repos/robsonvleite/optimizer/zipball/51ccd9d240ca97eb9dea571b3e047b7b0c52b75a",
+                "reference": "51ccd9d240ca97eb9dea571b3e047b7b0c52b75a",
                 "shasum": ""
             },
             "require": {
-                "ext-simplexml": "*",
-                "php": ">=7.2"
+                "ext-simplexml": "^7.1",
+                "php": "^7.1"
             },
             "type": "library",
             "autoload": {
@@ -55,9 +55,9 @@
             ],
             "support": {
                 "issues": "https://github.com/robsonvleite/optimizer/issues",
-                "source": "https://github.com/robsonvleite/optimizer/tree/2.0.2"
+                "source": "https://github.com/robsonvleite/optimizer/tree/master"
             },
-            "time": "2021-03-21T14:08:00+00:00"
+            "time": "2018-10-03T13:50:33+00:00"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",

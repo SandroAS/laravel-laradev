@@ -37,20 +37,33 @@ class WebController extends Controller
 
     public function blog()
     {
+        $posts = Post::orderBy('created_at', 'DESC')->get();
         $head = $this->seo->render(
-            env('APP_NAME') . ' - blog',//Título
-            'Um treinamento completo do zero ao developer para você aprender e se espercializar no Laravel e abrir as portas de um mercado repleto de oportunidades!',//Descrição
+            env('APP_NAME') . ' - Sobre o blog',//Título
+            'Descrição do Blog',//Descrição
             route('blog'),//Url
             asset('images/img_bg_1.jpg'),//Image
         );
         return view('front.blog', [
-            'head' => $head
+            'head' => $head,
+            'posts' => $posts,
         ]);
     }
 
-    public function article()
+    public function article($uri)
     {
-        return view('front.article');
+        $post = Post::where('uri', $uri)->first();
+        $head = $this->seo->render(
+            env('APP_NAME') . ' - ' . $post->title,//Título
+            $post->subtitle,//Descrição
+            route('article', $post->uri),//Url
+            \Illuminate\Support\Facades\Storage::url(\App\Support\Cropper::thumb($post->cover, 1200, 628)),//Image
+        );
+
+        return view('front.article', [
+            'head' => $head,
+            'post' => $post,
+        ]);
     }
 
     public function contact()

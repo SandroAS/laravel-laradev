@@ -256,7 +256,7 @@
 
                 <div class="col-lg-4 col-md-4">
                     <div class="fh5co-blog animate-box">
-                        <a href="#"><img class="img-responsive" src="{{ \Illuminate\Support\Facades\Storage::url(\App\Support\Cropper::thumb($post->cover, 800, 450)) }}" alt=""></a>
+                        <a href="{{ route('article', $post->uri) }}"><img class="img-responsive" src="{{ \Illuminate\Support\Facades\Storage::url(\App\Support\Cropper::thumb($post->cover, 800, 450)) }}" alt=""></a>
                         <div class="blog-text">
                             <h3><a href="{{ route('article', $post->uri) }}" #>{{ $post->title }}</a></h3>
                             <span class="posted_on">{{ date('d/m/Y H:i', strtotime($post->created_at)) }}</span>

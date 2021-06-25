@@ -9,7 +9,8 @@
 
 	{!! $head ?? '' !!}
 
-	<link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,700,800" rel="stylesheet">
+	{{-- <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,700,800" rel="stylesheet"> --}}
+	<link href="https://fonts.googleapis.com/css2?family=Miriam+Libre:wght@400;700&display=swap" rel="stylesheet">
 
 	<link rel="stylesheet" href="{{ mix('front/assets/css/vendor.css') }}">
 	<link rel="stylesheet" href="{{ mix('front/assets/css/style.css') }}">

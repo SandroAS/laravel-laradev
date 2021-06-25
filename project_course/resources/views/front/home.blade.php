@@ -240,6 +240,8 @@
 
     @include('front.includes.testimonials')
 
+    @isset($posts)
+
     <div id="fh5co-blog">
         <div class="container">
             <div class="row animate-box">
@@ -250,50 +252,28 @@
             </div>
             <div class="row">
 
+                @foreach ($posts as $post)
+
                 <div class="col-lg-4 col-md-4">
                     <div class="fh5co-blog animate-box">
-                        <a href="#"><img class="img-responsive" src="front/assets/images/project-4.jpg" alt=""></a>
+                        <a href="#"><img class="img-responsive" src="{{ \Illuminate\Support\Facades\Storage::url(\App\Support\Cropper::thumb($post->cover, 800, 450)) }}" alt=""></a>
                         <div class="blog-text">
-                            <h3><a href="" #>45 Minimal Workspace Rooms for Web Savvys</a></h3>
-                            <span class="posted_on">Nov. 15th</span>
+                            <h3><a href="{{ route('article', $post->uri) }}" #>{{ $post->title }}</a></h3>
+                            <span class="posted_on">{{ date('d/m/Y H:i', strtotime($post->created_at)) }}</span>
                             <span class="comment"><a href="">21<i class="icon-speech-bubble"></i></a></span>
-                            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
-                                there live the blind texts.</p>
-                            <a href="#" class="btn btn-primary">Leia mais</a>
+                            <p>{{ $post->subtitle }}</p>
+                            <a href="{{ route('article', $post->uri) }}" class="btn btn-primary">Leia mais</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-4">
-                    <div class="fh5co-blog animate-box">
-                        <a href="#"><img class="img-responsive" src="front/assets/images/project-2.jpg" alt=""></a>
-                        <div class="blog-text">
-                            <h3><a href="" #>45 Minimal Worksspace Rooms for Web Savvys</a></h3>
-                            <span class="posted_on">Nov. 15th</span>
-                            <span class="comment"><a href="">21<i class="icon-speech-bubble"></i></a></span>
-                            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
-                                there live the blind texts.</p>
-                            <a href="#" class="btn btn-primary">Leia mais</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4">
-                    <div class="fh5co-blog animate-box">
-                        <a href="#"><img class="img-responsive" src="front/assets/images/project-3.jpg" alt=""></a>
-                        <div class="blog-text">
-                            <h3><a href="" #>45 Minimal Workspace Rooms for Web Savvys</a></h3>
-                            <span class="posted_on">Nov. 15th</span>
-                            <span class="comment"><a href="">21<i class="icon-speech-bubble"></i></a></span>
-                            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
-                                there live the blind texts.</p>
-                            <a href="#" class="btn btn-primary">Leia mais</a>
-                        </div>
-                    </div>
-                </div>
+
+                @endforeach
 
             </div>
         </div>
     </div>
 
+    @endisset
 
     @include('front.includes.optin')
 

@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Support\Seo;
+use App\Post;
 use Illuminate\Http\Request;
 
 class WebController extends Controller
 {
     public function home()
     {
+        $posts = Post::orderBy('created_at', 'DESC')->limit(3)->get();
         $head = $this->seo->render(
             env('APP_NAME') . ' - UpInside Treinamentos',//Título
             'Eleita a melhor escola de desenvolvimento, programação e marketing digital em mais de 17 países pela Latin Quality American Institute!',//Descrição
@@ -16,7 +17,8 @@ class WebController extends Controller
             asset('images/img_bg_1.jpg'),//Image
         );
         return view('front.home', [
-            'head' => $head
+            'head' => $head,
+            'posts' => $posts,
         ]);
     }
 

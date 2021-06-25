@@ -12,6 +12,8 @@ const mix = require('laravel-mix');
  */
 
 mix
+   .sass('resources/views/front/assets/sass/style.scss', 'public/front/assets/css/style.css')
+
    .styles([
       'resources/views/front/assets/css/animate.css',
       'resources/views/front/assets/css/icomoon.css',
@@ -27,7 +29,7 @@ mix
 
    .scripts([
       'resources/views/front/assets/js/respond.min.js',
-   ], 'public/front/assets/js/respond.min.js')
+   ], 'public/front/assets/js/respond.js')
 
    .scripts([
       'resources/views/front/assets/js/jquery.min.js',
@@ -43,4 +45,13 @@ mix
    
    .scripts([
       'resources/views/front/assets/js/main.js',
-   ], 'public/front/assets/js/main.js');
+   ], 'public/front/assets/js/main.js')
+   
+   .copyDirectory('resources/views/front/assets/fonts', 'public/front/assets/fonts')
+   .copyDirectory('resources/views/front/assets/images', 'public/front/assets/images')
+   
+   .options({
+      processCssUrls: false
+   })
+   
+   .version();

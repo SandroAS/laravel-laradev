@@ -35,7 +35,8 @@
                 </div>
                 <div class="col-md-6 animate-box">
                     <h3>Me manda um e-mail</h3>
-                    <form action="#">
+                    <form action="{{ route('send-mail') }}" method="post">
+                        @csrf
 
                         <div class="row form-group">
                             <div class="col-md-6">

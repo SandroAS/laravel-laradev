@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="d882a85c-7add-49e3-bcf2-b136eca71b5d" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="project_admin_html" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/login.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="350">
+              <caret line="45" column="76" selection-start-line="45" selection-start-column="76" selection-end-line="45" selection-end-column="76" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/dashboard.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="113" column="33" selection-start-line="113" selection-start-column="23" selection-end-line="113" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>dash_content_app_header</find>
+      <find>dash_sidebar_nav_li</find>
+      <find>#333</find>
+      <find>gustavo</find>
+      <find>app_config_component_item_content</find>
+      <find>dash_content</find>
+      <find>dash_content_box</find>
+      <find>check</find>
+      <find>content: &quot;\e012&quot;;</find>
+      <find>icon-check</find>
+      <find>square</find>
+      <find>icon-square</find>
+      <find>check-sq</find>
+      <find>collapse_</find>
+      <find>collapse</find>
+      <find>label_permissions_items</find>
+      <find>.nav_tabs</find>
+      <find>select2</find>
+      <find>label_g2</find>
+      <find>tiny</find>
+      <find>mce_upload</find>
+      <find>label_g5</find>
+      <find>valor da ven</find>
+      <find>.active a</find>
+      <find>label_g</find>
+      <find>form</find>
+      <find>sidebar</find>
+      <find>Cadastrar No</find>
+      <find>comunh˜</find>
+      <find>ajaxMessage</find>
+    </findStrings>
+    <replaceStrings>
+      <replace />
+    </replaceStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/code/source/scss/parts/_search.scss" />
+        <option value="$PROJECT_DIR$/code/widgets/users/filter.php" />
+        <option value="$PROJECT_DIR$/code/source/scss/apps/_app_users.scss" />
+        <option value="$PROJECT_DIR$/code/widgets/users/team.php" />
+        <option value="$PROJECT_DIR$/code/source/scss/components/_buttons.scss" />
+        <option value="$PROJECT_DIR$/code/source/scss/boot.scss" />
+        <option value="$PROJECT_DIR$/code/source/scss/addons/_select2.scss" />
+        <option value="$PROJECT_DIR$/code/source/scss/components/_nav.scss" />
+        <option value="$PROJECT_DIR$/code/source/scss/addons/_tiny_mce.scss" />
+        <option value="$PROJECT_DIR$/code/source/scss/components/_icons.scss" />
+        <option value="$PROJECT_DIR$/code/source/scss/apps/_companies.scss" />
+        <option value="$PROJECT_DIR$/code/source/scss/style.scss" />
+        <option value="$PROJECT_DIR$/code/source/scss/apps/_realty.scss" />
+        <option value="$PROJECT_DIR$/code/widgets/realties/create.php" />
+        <option value="$PROJECT_DIR$/code/source/scss/parts/_sidebar.scss" />
+        <option value="$PROJECT_DIR$/code/source/scss/reset.scss" />
+        <option value="$PROJECT_DIR$/code/source/scss/parts/_userbar.scss" />
+        <option value="$PROJECT_DIR$/code/widgets/users/index.php" />
+        <option value="$PROJECT_DIR$/code/widgets/companies/index.php" />
+        <option value="$PROJECT_DIR$/code/source/scss/components/_collapse.scss" />
+        <option value="$PROJECT_DIR$/code/source/scss/components/_content_box.scss" />
+        <option value="$PROJECT_DIR$/code/source/scss/components/_form.scss" />
+        <option value="$PROJECT_DIR$/code/widgets/companies/create.php" />
+        <option value="$PROJECT_DIR$/code/widgets/realties/index.php" />
+        <option value="$PROJECT_DIR$/code/dash.php" />
+        <option value="$PROJECT_DIR$/code/widgets/contracts/index.php" />
+        <option value="$PROJECT_DIR$/code/assets/js/scripts.js" />
+        <option value="$PROJECT_DIR$/code/widgets/contracts/create.php" />
+        <option value="$PROJECT_DIR$/code/index.php" />
+        <option value="$PROJECT_DIR$/code/widgets/users/create.php" />
+        <option value="$PROJECT_DIR$/admin/assets/js/login.js" />
+        <option value="$PROJECT_DIR$/admin/assets/js/scripts.js" />
+        <option value="$PROJECT_DIR$/admin/dashboard.blade.php" />
+        <option value="$PROJECT_DIR$/admin/login.php" />
+        <option value="$PROJECT_DIR$/admin/users/index.php" />
+        <option value="$PROJECT_DIR$/admin/users/create.php" />
+        <option value="$PROJECT_DIR$/admin/properties/create.php" />
+        <option value="$PROJECT_DIR$/admin/properties/index.php" />
+        <option value="$PROJECT_DIR$/admin/companies/index.php" />
+        <option value="$PROJECT_DIR$/admin/companies/create.php" />
+        <option value="$PROJECT_DIR$/admin/companies/filter.php" />
+        <option value="$PROJECT_DIR$/admin/properties/filter.php" />
+        <option value="$PROJECT_DIR$/admin/users/team.php" />
+        <option value="$PROJECT_DIR$/admin/contracts/filter.php" />
+        <option value="$PROJECT_DIR$/admin/contracts/index.php" />
+        <option value="$PROJECT_DIR$/admin/assets/scss/_variables.scss" />
+        <option value="$PROJECT_DIR$/admin/contracts/create.php" />
+        <option value="$PROJECT_DIR$/admin/dashboard.php" />
+        <option value="$PROJECT_DIR$/admin/assets/scss/style.scss" />
+        <option value="$PROJECT_DIR$/admin/dashboard/index.php" />
+        <option value="$PROJECT_DIR$/assets/scss/style.scss" />
+      </list>
+    </option>
+  </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <annotation-enable>false</annotation-enable>
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="158" />
+    <option name="y" value="105" />
+    <option name="width" value="1366" />
+    <option name="height" value="767" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="project_admin_html" type="b2602c69:ProjectViewProjectNode" />
+              <item name="project_admin_html" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="project_admin_html" type="b2602c69:ProjectViewProjectNode" />
+              <item name="project_admin_html" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="project_admin_html" type="b2602c69:ProjectViewProjectNode" />
+              <item name="project_admin_html" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="/usr/local/bin/node" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="editing.templates" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/code/widgets/contracts" />
+      <recent name="$PROJECT_DIR$/code/assets/js" />
+      <recent name="$PROJECT_DIR$/code/widgets/realties" />
+      <recent name="$PROJECT_DIR$/code/widgets/companies" />
+      <recent name="$PROJECT_DIR$/code/assets/images/icons" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/code/widgets/companies" />
+      <recent name="$PROJECT_DIR$/code/assets/js/datatables" />
+      <recent name="$PROJECT_DIR$/code/assets/js/datatables/js" />
+      <recent name="$PROJECT_DIR$/code/assets/js/datatables/css" />
+      <recent name="$PROJECT_DIR$/code/assets/js" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d882a85c-7add-49e3-bcf2-b136eca71b5d" name="Default Changelist" comment="" />
+      <created>1551395233086</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1551395233086</updated>
+      <workItem from="1551395234271" duration="10568000" />
+      <workItem from="1551434031053" duration="7000" />
+      <workItem from="1552321001027" duration="38600000" />
+      <workItem from="1552785194296" duration="5149000" />
+      <workItem from="1552912632670" duration="48003000" />
+      <workItem from="1553462945284" duration="3000" />
+      <workItem from="1553518328043" duration="97365000" />
+      <workItem from="1554384356767" duration="444000" />
+      <workItem from="1554475221380" duration="76000" />
+      <workItem from="1554886954151" duration="1125000" />
+      <workItem from="1555523539737" duration="13000" />
+      <workItem from="1555523568765" duration="4000" />
+      <workItem from="1555596726336" duration="622000" />
+      <workItem from="1556114143891" duration="17523000" />
+      <workItem from="1556283701600" duration="2254000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="221756000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="158" y="105" width="1366" height="767" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4982699" visible="true" weight="0.2545317" />
+      <window_info id="Structure" order="1" sideWeight="0.5010309" side_tool="true" weight="0.29456192" />
+      <window_info id="Favorites" order="2" sideWeight="0.5017301" side_tool="true" weight="0.21794872" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3298731" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3298731" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="8" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.23555556" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/code/widgets/realties/index.php" />
+    <entry file="file://$PROJECT_DIR$/code/widgets/config/components.php" />
+    <entry file="file://$PROJECT_DIR$/code/widgets/realties/create.php" />
+    <entry file="file://$PROJECT_DIR$/code/widgets/companies/index.php" />
+    <entry file="file://$PROJECT_DIR$/code/widgets/contracts/filter.php" />
+    <entry file="file://$PROJECT_DIR$/code/widgets/contracts/index.php" />
+    <entry file="file://$PROJECT_DIR$/code/assets/js/scripts.js" />
+    <entry file="file://$PROJECT_DIR$/code/index.php" />
+    <entry file="file://$PROJECT_DIR$/admin/properties/edit.blade.php" />
+    <entry file="file://$PROJECT_DIR$/code/widgets/contracts/create.php" />
+    <entry file="file://$PROJECT_DIR$/code/dash.php" />
+    <entry file="file://$PROJECT_DIR$/admin/assets/js/login.js" />
+    <entry file="file://$PROJECT_DIR$/admin/users/filter.php" />
+    <entry file="file://$PROJECT_DIR$/admin/users/edit.blade.php" />
+    <entry file="file://$PROJECT_DIR$/admin/master/master.blade.php" />
+    <entry file="file://$PROJECT_DIR$/admin/users/index.php" />
+    <entry file="file://$PROJECT_DIR$/admin/assets/js/scripts.js" />
+    <entry file="file://$PROJECT_DIR$/code/widgets/users/create.php" />
+    <entry file="file://$PROJECT_DIR$/admin/properties/filter.php" />
+    <entry file="file://$PROJECT_DIR$/admin/companies/filter.php" />
+    <entry file="file://$PROJECT_DIR$/admin/companies/create.php" />
+    <entry file="file://$PROJECT_DIR$/admin/companies/index.php" />
+    <entry file="file://$PROJECT_DIR$/admin/contracts/edit.blade.php" />
+    <entry file="file://$PROJECT_DIR$/admin/contracts/filter.php" />
+    <entry file="file://$PROJECT_DIR$/admin/users/team.php" />
+    <entry file="file://$PROJECT_DIR$/admin/assets/scss/_variables.scss" />
+    <entry file="file://$PROJECT_DIR$/admin/login.php" />
+    <entry file="file://$PROJECT_DIR$/admin/users/create.php" />
+    <entry file="file://$PROJECT_DIR$/admin/properties/create.php" />
+    <entry file="file://$PROJECT_DIR$/admin/assets/css/style.css" />
+    <entry file="file://$PROJECT_DIR$/admin/assets/scss/apps/_app_subscribers.scss" />
+    <entry file="file://$PROJECT_DIR$/admin/assets/scss/apps/_app_plans.scss" />
+    <entry file="file://$PROJECT_DIR$/admin/assets/scss/apps/_app_control.scss" />
+    <entry file="file://$PROJECT_DIR$/admin/assets/scss/apps/_app_config_components.scss" />
+    <entry file="file://$PROJECT_DIR$/admin/assets/scss/style.scss" />
+    <entry file="file://$PROJECT_DIR$/admin/assets/scss/apps/_app_users.scss" />
+    <entry file="file://$PROJECT_DIR$/admin/assets/scss/apps/_app_home.scss" />
+    <entry file="file://$PROJECT_DIR$/THEME - cafeadm/themes/cafeadm/_admin.php" />
+    <entry file="file://$PROJECT_DIR$/html/dash.php" />
+    <entry file="file://$PROJECT_DIR$/code/widgets/dash/home.php" />
+    <entry file="file://$PROJECT_DIR$/admin/contracts/index.php" />
+    <entry file="file://$PROJECT_DIR$/admin/properties/index.php" />
+    <entry file="file://$PROJECT_DIR$/admin/dashboard/index.php" />
+    <entry file="file://$PROJECT_DIR$/admin/dashboard.php" />
+    <entry file="file://$PROJECT_DIR$/admin/contracts/create.php" />
+    <entry file="file://$PROJECT_DIR$/login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="45" column="76" selection-start-line="45" selection-start-column="76" selection-end-line="45" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/scss/_variables.scss">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/scss/components/_buttons.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="25" column="12" lean-forward="true" selection-start-line="25" selection-start-column="12" selection-end-line="25" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/scss/style.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="29" column="23" selection-start-line="26" selection-start-column="5" selection-end-line="29" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/scripts.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-717">
+          <caret line="147" column="20" lean-forward="true" selection-start-line="139" selection-start-column="9" selection-end-line="147" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dashboard.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="113" column="33" selection-start-line="113" selection-start-column="23" selection-end-line="113" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

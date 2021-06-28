@@ -11,6 +11,8 @@
     <link rel="icon" type="image/png" href="backend/assets/images/favicon.png"/>
 
     <title>UpAdmin - Site Control</title>
+
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 <body>
 

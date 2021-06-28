@@ -16,4 +16,12 @@ class AuthController extends Controller
     {
         return view('admin.dashboard');
     }
+
+    public function login(Request $request)
+    {
+        if (in_array('', $request->only('email', 'password'))) {
+            $json['message'] = "Ooops, informe todos os dados para efetuar o login";
+            return response()->json($json);
+        }
+    }
 }

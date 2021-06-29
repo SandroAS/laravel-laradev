@@ -36,8 +36,8 @@
         </article>
 
         <ul class="dash_sidebar_nav">
-            <li class="dash_sidebar_nav_item active">
-                <a class="icon-tachometer" href="dashboard.php?app=dashboard/index">Dashboard</a>
+            <li class="dash_sidebar_nav_item {{ isActive('admin.home') }}">
+                <a class="icon-tachometer" href="{{ route('admin.home') }}">Dashboard</a>
             </li>
             <li class="dash_sidebar_nav_item"><a class="icon-users" href="dashboard.php?app=users/index">Clientes</a>
                 <ul class="dash_sidebar_nav_submenu">

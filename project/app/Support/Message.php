@@ -1,6 +1,8 @@
 <?php
 
+
 namespace LaraDev\Support;
+
 
 class Message
 {

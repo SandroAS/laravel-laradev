@@ -18,9 +18,37 @@ $(function () {
             console.log(response);
 
             if(response.message) {
-                alert('Mensagem de erro: ' + response.message);
+                ajaxMessage(response.message, 3);
             }
-        }, 'json');
 
+            if(response.redirect) {
+                window.location.href = response.redirect;
+            }
+
+        }, 'json');
     })
+
+    // AJAX RESPONSE
+    var ajaxResponseBaseTime = 3;
+
+    function ajaxMessage(message, time) {
+        var ajaxMessage = $(message);
+
+        ajaxMessage.append("<div class='message_time'></div>");
+        ajaxMessage.find(".message_time").animate({"width": "100%"}, time * 1000, function () {
+            $(this).parents(".message").fadeOut(200);
+        });
+
+        $(".ajax_response").append(ajaxMessage);
+    }
+
+    // AJAX RESPONSE MONITOR
+    $(".ajax_response .message").each(function (e, m) {
+        ajaxMessage(m, ajaxResponseBaseTime += 1);
+    });
+
+    // AJAX MESSAGE CLOSE ON CLICK
+    $(".ajax_response").on("click", ".message", function (e) {
+        $(this).effect("bounce").fadeOut(1);
+    });
 });

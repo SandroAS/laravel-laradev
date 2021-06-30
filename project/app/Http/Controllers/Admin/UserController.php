@@ -3,12 +3,8 @@
 namespace LaraDev\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
-use LaraDev\Company;
 use LaraDev\Http\Controllers\Controller;
 use LaraDev\Http\Requests\Admin\User as UserRequest;
-use LaraDev\Support\Cropper;
-use LaraDev\User;
 
 class UserController extends Controller
 {
@@ -19,23 +15,15 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::all();
-        return view('admin.users.index', [
-            'users' => $users
-        ]);
+        return view('admin.users.index');
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function team()
     {
-        $users = User::where('admin', 1)->get();
-        return view('admin.users.team', [
-            'users' => $users
-        ]);
+        //$users = User::where('admin', 1)->get();
+        return view('admin.users.team');//, [
+            //'users' => $users
+        //]);
     }
 
     /**
@@ -56,16 +44,7 @@ class UserController extends Controller
      */
     public function store(UserRequest $request)
     {
-        $userCreate = User::create($request->all());
-
-        if(!empty($request->file('cover'))){
-            $userCreate->cover = $request->file('cover')->store('user');
-            $userCreate->save();
-        }
-
-        return redirect()->route('admin.users.edit', [
-            'users' => $userCreate->id
-        ])->with(['color' => 'green', 'message' => 'Cliente cadastrado com sucesso!']);
+        var_dump($request->all());
     }
 
     /**
@@ -87,10 +66,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $user = User::where('id', $id)->first();
-        return view('admin.users.edit', [
-            'user' => $user
-        ]);
+        //
     }
 
     /**
@@ -100,32 +76,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UserRequest $request, $id)
+    public function update(Request $request, $id)
     {
-        $user = User::where('id', $id)->first();
-
-        $user->setLessorAttribute($request->lessor);
-        $user->setLesseeAttribute($request->lessee);
-
-        if(!empty($request->file('cover'))){
-            Storage::delete($user->cover);
-            Cropper::flush($user->cover);
-            $user->cover = '';
-        }
-
-        $user->fill($request->all());
-
-        if(!empty($request->file('cover'))){
-            $user->cover = $request->file('cover')->store('user');
-        }
-
-        if(!$user->save()){
-            return redirect()->back()->withInput()->withErrors();
-        }
-
-        return redirect()->route('admin.users.edit', [
-            'users' => $user->id
-        ])->with(['color' => 'green', 'message' => 'Cliente atualizado com sucesso!']);
+        //
     }
 
     /**

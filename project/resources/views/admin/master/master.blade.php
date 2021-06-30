@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
 
-    <link rel="stylesheet" href="{{ url(mix('backend/assets/css/reset.css')) }}"/>
-    <link rel="stylesheet" href="{{ url(mix('backend/assets/css/libs.css')) }}">
-    <link rel="stylesheet" href="{{ url(mix('backend/assets/css/boot.css')) }}"/>
-    <link rel="stylesheet" href="{{ url(mix('backend/assets/css/style.css')) }}"/>
+    <link rel="stylesheet" href="{{ mix('backend/assets/css/reset.css') }}"/>
+    <link rel="stylesheet" href="{{ mix('backend/assets/css/libs.css') }}">
+    <link rel="stylesheet" href="{{ mix('backend/assets/css/boot.css') }}"/>
+    <link rel="stylesheet" href="{{ mix('backend/assets/css/style.css') }}"/>
 
-    @hasSection('css')
-        @yield('css')
+    @hasSection ('css')
+        @yield('css')    
     @endif
-
-    <link rel="icon" type="image/png" href="{{ url(asset('backend/assets/images/favicon.png')) }}"/>
+    
+    <link rel="icon" type="image/png" href="backend/assets/images/favicon.png"/>
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -30,18 +30,10 @@
 
 <div class="ajax_response"></div>
 
-@php
-    if(\Illuminate\Support\Facades\File::exists(public_path() . '/storage/' . \Illuminate\Support\Facades\Auth::user()->cover)){
-        $cover = \Illuminate\Support\Facades\Auth::user()->url_cover;
-    } else {
-        $cover = url(asset('backend/assets/images/avatar.jpg'));
-    }
-@endphp
-
 <div class="dash">
     <aside class="dash_sidebar">
         <article class="dash_sidebar_user">
-            <img class="dash_sidebar_user_thumb" src="{{ $cover }}" alt="" title=""/>
+            <img class="dash_sidebar_user_thumb" src="{{ url(asset('backend/assets/images/avatar.jpg')) }}" alt="" title=""/>
 
             <h1 class="dash_sidebar_user_name">
                 <a href="">Gustavo Web</a>
@@ -52,40 +44,41 @@
             <li class="dash_sidebar_nav_item {{ isActive('admin.home') }}">
                 <a class="icon-tachometer" href="{{ route('admin.home') }}">Dashboard</a>
             </li>
-            <li class="dash_sidebar_nav_item {{ isActive('admin.users') }} {{ isActive('admin.companies') }}"><a
-                        class="icon-users" href="{{ route('admin.users.index') }}">Clientes</a>
+{{--{{ isActive('admin.companies') }}
+             
+{{ isActive('admin.companies.index') }}
+{{ route('admin.companies.index') }} --}}
+            <li class="dash_sidebar_nav_item {{ isActive('admin.users') }}">
+                <a class="icon-users" href="{{ route('admin.users.index') }}">Clientes</a>
                 <ul class="dash_sidebar_nav_submenu">
-                    <li class="{{ isActive('admin.users.index') }}"><a href="{{ route('admin.users.index') }}">Ver
-                            Todos</a></li>
-                    <li class="{{ isActive('admin.companies.index') }}"><a href="{{ route('admin.companies.index') }}">Empresas</a>
+                    <li class="{{ isActive('admin.users.index') }}">
+                        <a href="{{ route('admin.users.index') }}">Ver Todos</a>
                     </li>
-                    <li class="{{ isActive('admin.users.team') }}"><a href="{{ route('admin.users.team') }}">Time</a>
+                    <li class="">
+                        <a href="">Empresas</a>
                     </li>
-                    <li class="{{ isActive('admin.users.create') }}"><a href="{{ route('admin.users.create') }}">Criar
-                            Novo</a></li>
+                    <li class="{{ isActive('admin.users.team') }}">
+                        <a href="{{ route('admin.users.team') }}">Time</a>
+                    </li>
+                    <li class="{{ isActive('admin.users.create') }}">
+                        <a href="{{ route('admin.users.create') }}">Criar Novo</a>
+                    </li>
                 </ul>
             </li>
-            <li class="dash_sidebar_nav_item {{ isActive('admin.properties') }}"><a class="icon-home"
-                                                                                    href="{{ route('admin.properties.index') }}">Imóveis</a>
+            <li class="dash_sidebar_nav_item"><a class="icon-home" href="dashboard.php?app=properties/index">Imóveis</a>
                 <ul class="dash_sidebar_nav_submenu">
-                    <li class="{{ isActive('admin.properties.index') }}"><a
-                                href="{{ route('admin.properties.index') }}">Ver Todos</a></li>
-                    <li class="{{ isActive('admin.properties.create') }}"><a
-                                href="{{ route('admin.properties.create') }}">Criar Novo</a></li>
+                    <li class=""><a href="dashboard.php?app=properties/index">Ver Todos</a></li>
+                    <li class=""><a href="dashboard.php?app=properties/create">Criar Novo</a></li>
                 </ul>
             </li>
-            <li class="dash_sidebar_nav_item {{ isActive('admin.contracts') }}"><a class="icon-file-text"
-                                                                                   href="{{ route('admin.contracts.index') }}">Contratos</a>
+            <li class="dash_sidebar_nav_item"><a class="icon-file-text" href="dashboard.php?app=contracts/index">Contratos</a>
                 <ul class="dash_sidebar_nav_submenu">
-                    <li class="{{ isActive('admin.contracts.index') }}"><a href="{{ route('admin.contracts.index') }}">Ver
-                            Todos</a></li>
-                    <li class="{{ isActive('admin.contracts.create') }}"><a
-                                href="{{ route('admin.contracts.create') }}">Criar Novo</a></li>
+                    <li class=""><a href="dashboard.php?app=contracts/index">Ver Todos</a></li>
+                    <li class=""><a href="dashboard.php?app=contracts/create">Criar Novo</a></li>
                 </ul>
             </li>
             <li class="dash_sidebar_nav_item"><a class="icon-reply" href="">Ver Site</a></li>
-            <li class="dash_sidebar_nav_item"><a class="icon-sign-out on_mobile" href="{{ route('admin.logout') }}"
-                                                 target="_blank">Sair</a></li>
+            <li class="dash_sidebar_nav_item"><a class="icon-sign-out on_mobile" href="{{ route('admin.logout') }}" target="_blank">Sair</a></li>
         </ul>
 
     </aside>
@@ -113,13 +106,12 @@
 </div>
 
 
-<script src="{{ url(mix('backend/assets/js/jquery.js')) }}"></script>
-<script src="{{ url(asset('backend/assets/js/tinymce/tinymce.min.js')) }}"></script>
-<script src="{{ url(mix('backend/assets/js/libs.js')) }}"></script>
-<script src="{{ url(mix('backend/assets/js/scripts.js')) }}"></script>
+<script src="{{ mix('backend/assets/js/jquery.js') }}"></script>
+<script src="{{ mix('backend/assets/js/libs.js') }}"></script>
+<script src="{{ mix('backend/assets/js/scripts.js') }}"></script>
 
-@hasSection('js')
-    @yield('js')
+@hasSection ('js')
+    @yield('js')    
 @endif
 
 </body>

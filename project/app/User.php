@@ -50,6 +50,8 @@ class User extends Authenticatable
         'spouse_company_work',
         'lessor',
         'lessee',
+        'admin',
+        'client',
     ];
 
     /**
@@ -82,7 +84,7 @@ class User extends Authenticatable
 
     public function setDocumentAttribute($value)
     {
-        $this->attributes['document'] = $this->clearFild($value);
+        $this->attributes['document'] = $this->clearField($value);
     }
 
     public function setDateOfBirthAttribute($value)
@@ -133,6 +135,16 @@ class User extends Authenticatable
     public function setSpouseIncomeAttribute($value)
     {
         $this->attributes['spouse_income'] = floatval($this->convertStringToDouble($value));
+    }
+
+    public function setAdminAttribute($value)
+    {
+        $this->attributes['admin'] = ($value === true || $value === 'on' ? 1 : 0);
+    }
+
+    public function setClientAttribute($value)
+    {
+        $this->attributes['client'] = ($value === true || $value === 'on' ? 1 : 0);
     }
 
     private function convertStringToDouble(?string $param)

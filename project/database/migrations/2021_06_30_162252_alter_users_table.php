@@ -84,7 +84,7 @@ class AlterUsersTable extends Migration
             /** Data */
             $table->dropColumn('genre');
             $table->dropColumn('document');
-            $table->dropColumn('document_secondary', 20);
+            $table->dropColumn('document_secondary');
             $table->dropColumn('document_secondary_complement');
             $table->dropColumn('date_of_birth');
             $table->dropColumn('place_of_birth');
@@ -93,7 +93,7 @@ class AlterUsersTable extends Migration
 
             /** Income */
             $table->dropColumn('occupation');
-            $table->dropColumn('income', 10, 2);
+            $table->dropColumn('income');
             $table->dropColumn('company_work');
 
             /** Address */
@@ -114,14 +114,14 @@ class AlterUsersTable extends Migration
             $table->dropColumn('spouse_name');
             $table->dropColumn('spouse_genre');
             $table->dropColumn('spouse_document');
-            $table->dropColumn('spouse_document_secondary', 20);
+            $table->dropColumn('spouse_document_secondary');
             $table->dropColumn('spouse_document_secondary_complement');
             $table->dropColumn('spouse_date_of_birth');
             $table->dropColumn('spouse_place_of_birth');
 
             /** Income Spouse */
             $table->dropColumn('spouse_occupation');
-            $table->dropColumn('spouse_income', 10, 2);
+            $table->dropColumn('spouse_income');
             $table->dropColumn('spouse_company_work');
 
             /** Access */

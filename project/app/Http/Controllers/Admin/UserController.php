@@ -3,8 +3,10 @@
 namespace LaraDev\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use LaraDev\Http\Controllers\Controller;
 use LaraDev\Http\Requests\Admin\User as UserRequest;
+use LaraDev\Support\Cropper;
 use LaraDev\User;
 
 class UserController extends Controller
@@ -24,10 +26,10 @@ class UserController extends Controller
 
     public function team()
     {
-        //$users = User::where('admin', 1)->get();
-        return view('admin.users.team');//, [
-            //'users' => $users
-        //]);
+        $users = User::where('admin', 1)->get();
+        return view('admin.users.team', [
+            'users' => $users
+        ]);
     }
 
     /**
@@ -49,6 +51,11 @@ class UserController extends Controller
     public function store(UserRequest $request)
     {
         $userCreate = User::create($request->all());
+
+        if(!empty($request->file('cover'))){
+            $userCreate->cover = $request->file('cover')->store('user');
+            $userCreate->save();
+        }
 
         var_dump($userCreate);
     }
@@ -87,18 +94,32 @@ class UserController extends Controller
      */
     public function update(UserRequest $request, $id)
     {
+        //dd($request->file('cover'));
         $user = User::where('id', $id)->first();
 
         $user->setLessorAttribute($request->lessor);
         $user->setLesseeAttribute($request->lessee);
 
-        $user->fill($request->all());
-        $user->save();
+        if(!empty($request->file('cover'))){
 
-        var_dump($user);
-        // return view('admin.users.index', [
-        //     'user' => $user
-        // ]);
+            Storage::delete($user->cover);
+            Cropper::flush($user->cover);
+            $user->cover = '';
+        }
+
+        $user->fill($request->all());
+
+        if(!empty($request->file('cover'))){
+            $user->cover = $request->file('cover')->store('user');
+        }
+
+        if(!$user->save()){
+            return redirect()->back()->withInput()->withErrors();
+        }
+
+        return redirect()->route('admin.users.edit', [
+            'users' => $user->id
+        ])->with(['color' => 'green', 'message' => 'Cliente atualizado com sucesso!']);
     }
 
     /**

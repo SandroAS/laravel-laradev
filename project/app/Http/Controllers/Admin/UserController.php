@@ -85,9 +85,20 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UserRequest $request, $id)
     {
-        //
+        $user = User::where('id', $id)->first();
+
+        $user->setLessorAttribute($request->lessor);
+        $user->setLesseeAttribute($request->lessee);
+
+        $user->fill($request->all());
+        $user->save();
+
+        var_dump($user);
+        // return view('admin.users.index', [
+        //     'user' => $user
+        // ]);
     }
 
     /**

@@ -30,10 +30,10 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin.'], fu
         /** Empresas */
         Route::resource('companies', 'CompanyController');
 
-        // /** Imóveis */
+        /** Imóveis */
         // Route::post('properties/image-set-cover', 'PropertyController@imageSetCover')->name('properties.imageSetCover');
         // Route::delete('properties/image-remove', 'PropertyController@imageRemove')->name('properties.imageRemove');
-        // Route::resource('properties', 'PropertyController');
+        Route::resource('properties', 'PropertyController');
 
         // /** Contratos */
         // Route::post('contracts/get-data-owner', 'ContractController@getDataOwner')->name('contracts.getDataOwner');

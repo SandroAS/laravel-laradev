@@ -1,3 +1,7 @@
+@extends('admin.master.master')
+
+@section('content')
+
 <section class="dash_content_app">
 
     <header class="dash_content_app_header">
@@ -6,19 +10,15 @@
         <div class="dash_content_app_header_actions">
             <nav class="dash_content_app_breadcrumb">
                 <ul>
-                    <li><a href="">Dashboard</a></li>
+                    <li><a href="{{ route('admin.home') }}">Dashboard</a></li>
                     <li class="separator icon-angle-right icon-notext"></li>
-                    <li><a href="">Imóveis</a></li>
-                    <li class="separator icon-angle-right icon-notext"></li>
-                    <li><a href="" class="text-orange">Cadastrar Imóvel</a></li>
+                    <li><a href="{{ route('admin.properties.index') }}">Imóveis</a></li>
                 </ul>
             </nav>
-
-            <button class="btn btn-green icon-search icon-notext ml-1 search_open"></button>
         </div>
     </header>
 
-    <?php include('filter.php'); ?>
+    @include('admin.properties.filter')
 
     <div class="dash_content_app_box">
 
@@ -340,6 +340,8 @@
     </div>
 </section>
 
+@section('js')
+
 <script>
     $(function () {
         $('input[name="files[]"]').change(function (files) {
@@ -361,3 +363,7 @@
         });
     });
 </script>
+    
+@endsection
+
+@endsection

@@ -77,6 +77,7 @@ class User extends Authenticatable
 
     public function getUrlCoverAttribute()
     {
+        
         if(!empty($this->cover)){
             return Storage::url(Cropper::thumb($this->cover, 500, 500));
         }

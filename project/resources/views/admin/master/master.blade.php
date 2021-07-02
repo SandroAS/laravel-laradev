@@ -13,7 +13,7 @@
         @yield('css')    
     @endif
     
-    <link rel="icon" type="image/png" href="backend/assets/images/favicon.png"/>
+    <link rel="icon" type="image/png" href="{{ url(asset('backend/assets/images/favicon.png')) }}"/>
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -107,6 +107,7 @@
 
 
 <script src="{{ mix('backend/assets/js/jquery.js') }}"></script>
+<script src="{{ url(asset('backend/assets/js/tinymce/tinymce.min.js')) }}"></script>
 <script src="{{ mix('backend/assets/js/libs.js') }}"></script>
 <script src="{{ mix('backend/assets/js/scripts.js') }}"></script>
 

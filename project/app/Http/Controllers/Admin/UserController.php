@@ -94,7 +94,6 @@ class UserController extends Controller
      */
     public function update(UserRequest $request, $id)
     {
-        //dd($request->file('cover'));
         $user = User::where('id', $id)->first();
 
         $user->setLessorAttribute($request->lessor);

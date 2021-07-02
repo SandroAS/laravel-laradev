@@ -4,8 +4,112 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "66ca7343889332c2b8ecca11c251430c",
+    "content-hash": "ea4b5c2238defac87b55e295f67bdd5e",
     "packages": [
+        {
+            "name": "coffeecode/cropper",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/robsonvleite/cropper.git",
+                "reference": "c7a79d84149e0b51eaa1cc69917550b12122e566"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/robsonvleite/cropper/zipball/c7a79d84149e0b51eaa1cc69917550b12122e566",
+                "reference": "c7a79d84149e0b51eaa1cc69917550b12122e566",
+                "shasum": ""
+            },
+            "require": {
+                "ext-fileinfo": "^7.1",
+                "ext-gd": "^7.1",
+                "php": "^7.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "CoffeeCode\\Cropper\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Robson V. Leite",
+                    "email": "cursos@upinside.com.br",
+                    "role": "Developer"
+                }
+            ],
+            "description": "It is a easy and simple PHP image cropper and cache thumb manager",
+            "homepage": "http://www.upinside.com.br",
+            "keywords": [
+                "Coffeecode",
+                "image cache",
+                "image crop",
+                "image thumb",
+                "upload"
+            ],
+            "support": {
+                "issues": "https://github.com/robsonvleite/cropper/issues",
+                "source": "https://github.com/robsonvleite/cropper/tree/master"
+            },
+            "time": "2018-10-03T11:43:44+00:00"
+        },
+        {
+            "name": "coffeecode/optimizer",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/robsonvleite/optimizer.git",
+                "reference": "51ccd9d240ca97eb9dea571b3e047b7b0c52b75a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/robsonvleite/optimizer/zipball/51ccd9d240ca97eb9dea571b3e047b7b0c52b75a",
+                "reference": "51ccd9d240ca97eb9dea571b3e047b7b0c52b75a",
+                "shasum": ""
+            },
+            "require": {
+                "ext-simplexml": "^7.1",
+                "php": "^7.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "CoffeeCode\\Optimizer\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Robson V. Leite",
+                    "email": "cursos@upinside.com.br",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Optimizer makes it easy to bookmark your site tags, open graph and twitter card",
+            "homepage": "http://www.upinside.com.br",
+            "keywords": [
+                "Coffeecode",
+                "Facebook Tags",
+                "SMO",
+                "meta tags",
+                "open graph",
+                "seo",
+                "twitter card",
+                "upinside"
+            ],
+            "support": {
+                "issues": "https://github.com/robsonvleite/optimizer/issues",
+                "source": "https://github.com/robsonvleite/optimizer/tree/master"
+            },
+            "time": "2018-10-03T13:50:33+00:00"
+        },
         {
             "name": "dnoegel/php-xdg-base-dir",
             "version": "v0.1.1",

@@ -35,7 +35,8 @@
                 </li>
             </ul>
 
-            <form action="" method="post" class="app_form" enctype="multipart/form-data">
+            <form action="{{ route('admin.properties.store') }}" method="post" class="app_form" enctype="multipart/form-data">
+                @csrf
 
                 <div class="nav_tabs_content">
                     <div id="data">
@@ -85,6 +86,7 @@
                         <label class="label">
                             <span class="legend">Proprietário:</span>
                             <select name="user" class="select2">
+                                <option value="1">Gustavo Web</option>
                                 <option value="">Nome (documento)</option>
                             </select>
                         </label>

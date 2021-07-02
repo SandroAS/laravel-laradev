@@ -4,6 +4,7 @@ namespace LaraDev\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use LaraDev\Http\Controllers\Controller;
+use LaraDev\Property;
 
 class PropertyController extends Controller
 {
@@ -35,7 +36,10 @@ class PropertyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $property = new Property();
+        $property->fill($request->all());
+
+        var_dump($property);
     }
 
     /**

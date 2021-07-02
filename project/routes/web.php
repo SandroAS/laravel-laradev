@@ -27,8 +27,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin.'], fu
         Route::get('users/team', 'UserController@team')->name('users.team');
         Route::resource('users', 'UserController');
 
-        // /** Empresas */
-        // Route::resource('companies', 'CompanyController');
+        /** Empresas */
+        Route::resource('companies', 'CompanyController');
 
         // /** Imóveis */
         // Route::post('properties/image-set-cover', 'PropertyController@imageSetCover')->name('properties.imageSetCover');

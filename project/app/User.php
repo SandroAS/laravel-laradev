@@ -43,6 +43,7 @@ class User extends Authenticatable
         'cell',
         'type_of_communion',
         'spouse_name',
+        'spouse_genre',
         'spouse_document',
         'spouse_document_secondary',
         'spouse_document_secondary_complement',

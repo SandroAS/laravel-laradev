@@ -36,8 +36,14 @@
                 <label class="label">
                     <span class="legend">Responsável Legal:</span>
                     <select name="user" class="select2">
-                        <option value="1" selected>Gustavo</option>
-                        <option value="" selected>Nome (document)</option>
+                        <option value="" selected>Selecione um responsável legal</option>
+                        @foreach ($users as $user)
+                            @if(!empty($selected))
+                            <option value="{{ $user->id }} {{ (user->id === $selected->id ? 'selected' : '') }}">{{ $user->name }} ({{ $user->document }})</option>
+                            @else
+                            <option value="{{ $user->id }}">{{ $user->name }} ({{ $user->document }})</option>
+                            @endif
+                        @endforeach
                     </select>
                     <p style="margin-top: 4px;">
                         <a href="" class="text-orange icon-link" style="font-size: .8em;" target="_blank">Acessar

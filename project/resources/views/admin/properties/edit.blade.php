@@ -356,11 +356,11 @@
                                 <img src="{{ $image->url_cropped }}" alt="">
                                 <div class="property_image_actions">
                                     <a href="javascript:void(0)" 
-                                    class="btn btn-small icon-check icon-notext image-set-cover" 
-                                    data-action="{{ route('admin.properties.imageSetCover') }}"></a>
+                                    class="btn btn-small {{ ($image->cover == true ? 'btn-green' : '') }} icon-check icon-notext image-set-cover" 
+                                    data-action="{{ route('admin.properties.imageSetCover', ['image' => $image->id]) }}"></a>
                                     <a href="javascript:void(0)" 
                                     class="btn btn-small btn-red icon-times icon-notext image-remove" 
-                                    data-action="{{ route('admin.properties.imageRemove') }}"></a>
+                                    data-action="{{ route('admin.properties.imageRemove', ['image' => $image->id]) }}"></a>
                                 </div>
                             </div>
                             @endforeach
@@ -406,30 +406,38 @@
         });
 
         $('.image-set-cover').click(function(event){
-            event.preventDefault();
+                event.preventDefault();
 
-            var button = $(this);
+                var button = $(this);
 
-            $.post(button.data('action'), {}, function(response){
-                alert(response);
-            }, 'json');
+                $.post(button.data('action'), {}, function(response){
+                    if(response.success === true) {
+                        $('.property_image').find('a.btn-green').removeClass('btn-green');
+                        button.addClass('btn-green');
+                    }
+                }, 'json');
+            });
+
+            $('.image-remove').click(function(event){
+                event.preventDefault();
+
+                var button = $(this);
+
+                $.ajax({
+                    url: button.data('action'),
+                    type: 'DELETE',
+                    dataType: 'json',
+                    success: function(response){
+
+                        if(response.success === true) {
+                            button.closest('.property_image_item').fadeOut(function(){
+                                $(this).remove();
+                            });
+                        }
+                    }
+                })
+            });
         });
-
-        $('.image-remove').click(function(event){
-            event.preventDefault();
-
-            var button = $(this);
-
-            $.ajax({
-                url:button.data('action'),
-                type: 'DELETE',
-                dateType: 'json',
-                success: function(response){
-                    alert(response);
-                }
-            })
-        });
-    });
 </script>
     
 @endsection

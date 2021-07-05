@@ -3,10 +3,12 @@
 namespace LaraDev\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use LaraDev\Http\Controllers\Controller;
 use LaraDev\Http\Requests\Admin\Property as PropertyRequest;
 use LaraDev\Property;
 use LaraDev\PropertyImage;
+use LaraDev\Support\Cropper;
 use LaraDev\User;
 
 class PropertyController extends Controller
@@ -146,13 +148,37 @@ class PropertyController extends Controller
         //
     }
 
-    public function imageSetCover()
+    public function imageSetCover(Request $request)
     {
-        return response()->json('Você chegou até o php e conseguiu retornar os dados');
+        $imageSetCover = PropertyImage::where('id', $request->image)->first();
+        $allImage = PropertyImage::where('property', $imageSetCover->property)->get();
+
+        foreach($allImage as $image) {
+            $image->cover = null;
+            $image->save();
+        }
+
+        $imageSetCover->cover = true;
+        $imageSetCover->save();
+
+        $json = [
+            'success' => true
+        ];
+
+        return response()->json($json);
     }
 
-    public function imageRemove()
+    public function imageRemove(Request $request)
     {
-        return response()->json('Você clicou no botão para remover');
+        $imageDelete = PropertyImage::where('id', $request->image)->first();
+
+        Storage::delete($imageDelete->path);
+        Cropper::flush($imageDelete->path);
+        $imageDelete->delete();
+
+        $json = [
+            'success' => true
+        ];
+        return response()->json($json);
     }
 }

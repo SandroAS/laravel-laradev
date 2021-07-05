@@ -65,6 +65,23 @@ class Property extends Model
             ->orderBy('cover', 'ASC');
     }
 
+    public function cover()
+    {
+        $images = $this->images();
+        $cover = $images->where('cover', 1)->first(['path']);
+
+        if(!$cover) {
+            $images = $this->images();
+            $cover = $images->first(['path']);
+        }
+
+        if(empty($cover['path']) || !File::exists('../public/storage/' . $cover['path'])) {
+            return url(asset('backend/assets/images/realty.jpeg'));
+        }
+
+        return Storage::url(Cropper::thumb($cover['path'], 1366, 768));
+    }
+
     public function setSaleAttribute($value)
     {
         $this->attributes['sale'] = ($value == true || $value == 'on' ? 1 : 0);

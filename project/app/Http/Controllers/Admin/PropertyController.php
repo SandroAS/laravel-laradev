@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use LaraDev\Http\Controllers\Controller;
 use LaraDev\Http\Requests\Admin\Property as PropertyRequest;
 use LaraDev\Property;
+use LaraDev\PropertyImage;
 use LaraDev\User;
 
 class PropertyController extends Controller
@@ -119,15 +120,15 @@ class PropertyController extends Controller
         //     return redirect()->back()->withInput()->with(['color' => 'orange', 'message' => 'Todas as imagens devem ser do tipo jpg, jpeg ou png.']);
         // }
 
-        // if($request->allFiles()) {
-        //     foreach($request->allFiles()['files'] as $image) {
-        //         $propertyImage = new PropertyImage();
-        //         $propertyImage->property = $property->id;
-        //         $propertyImage->path = $image->store('properties/' . $property->id);
-        //         $propertyImage->save();
-        //         unset($propertyImage);
-        //     }
-        // }
+        if($request->allFiles()) {
+            foreach($request->allFiles()['files'] as $image) {
+                $propertyImage = new PropertyImage();
+                $propertyImage->property = $property->id;
+                $propertyImage->path = $image->store('properties/' . $property->id);
+                $propertyImage->save();
+                unset($propertyImage);
+            }
+        }
 
         return redirect()->route('admin.properties.edit', [
             'property' => $property->id

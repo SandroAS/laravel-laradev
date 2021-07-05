@@ -57,7 +57,9 @@ class UserController extends Controller
             $userCreate->save();
         }
 
-        var_dump($userCreate);
+        return redirect()->route('admin.users.edit', [
+            'users' => $userCreate->id
+        ])->with(['color' => 'green', 'message' => 'Cliente cadastrado com sucesso!']);
     }
 
     /**

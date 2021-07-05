@@ -37,8 +37,8 @@ class Property extends FormRequest
             'rooms' => 'required',
             'garage' => 'required',
             'garage_covered' => 'required',
-            'garage_total' => 'required',
-            'garage_util' => 'required',
+            'area_total' => 'required',
+            'area_util' => 'required',
 
             // Address
             'zipcode' => 'required|min:8|max:9',

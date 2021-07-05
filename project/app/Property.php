@@ -59,6 +59,12 @@ class Property extends Model
         return $this->belongsTo(User::class, 'user', 'id');
     }
 
+    public function images()
+    {
+        return $this->hasMany(PropertyImage::class, 'property', 'id')
+            ->orderBy('cover', 'ASC');
+    }
+
     public function setSaleAttribute($value)
     {
         $this->attributes['sale'] = ($value == true || $value == 'on' ? 1 : 0);

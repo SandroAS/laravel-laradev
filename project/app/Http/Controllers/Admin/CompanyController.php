@@ -5,7 +5,7 @@ namespace LaraDev\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use LaraDev\Company;
 use LaraDev\Http\Controllers\Controller;
-use LaraDev\Http\Requests\Admin\Company as CompanyRequest;
+use \LaraDev\Http\Requests\Admin\Company as CompanyRequest;
 use LaraDev\User;
 
 class CompanyController extends Controller
@@ -33,9 +33,9 @@ class CompanyController extends Controller
         $users = User::orderBy('name')->get();
 
         if(!empty($request->user)){
-            $users = User::where('id', $request->user)->first();
+            $user = User::where('id', $request->user)->first();
         }
-        
+
         return view('admin.companies.create', [
             'users' => $users,
             'selected' => (!empty($user) ? $user : null)
@@ -50,9 +50,9 @@ class CompanyController extends Controller
      */
     public function store(CompanyRequest $request)
     {
-        $companyCreate = Company::create($request->all());
+        $createCompany = Company::create($request->all());
 
-        var_dump($companyCreate);
+        var_dump($createCompany);
     }
 
     /**
@@ -98,7 +98,7 @@ class CompanyController extends Controller
 
         return redirect()->route('admin.companies.edit', [
             'company' => $company->id
-        ])->with(['color' => 'green', 'message' => 'Empresa atualizado com sucesso!']);
+        ])->with(['color' => 'green', 'message' => 'Empresa atualizada com sucesso!']);
     }
 
     /**

@@ -25,6 +25,14 @@
 
     <div class="dash_content_app_box">
 
+        @if($errors->all())
+            @foreach($errors->all() as $error)
+                @message(['color' => 'orange'])
+                <p class="icon-asterisk">{{ $error }}</p>
+                @endmessage
+            @endforeach
+        @endif
+
         <div class="nav">
             <ul class="nav_tabs">
                 <li class="nav_tabs_item">
@@ -37,16 +45,23 @@
 
             <div class="nav_tabs_content">
                 <div id="parts">
-                    <form action="" method="post" class="app_form">
+                    <form action="{{ route('admin.contracts.store') }}" method="post" class="app_form">
+                        @csrf
+
+                        <input type="hidden" name="owner_spouse_persist" value="{{ old('owner_spouse') }}">
+                        <input type="hidden" name="owner_company_persist" value="{{ old('owner_company') }}">
+                        <input type="hidden" name="acquirer_spouse_persist" value="{{ old('acquirer_spouse') }}">
+                        <input type="hidden" name="acquirer_company_persist" value="{{ old('acquirer_company') }}">
+                        <input type="hidden" name="property_persist" value="{{ old('property') }}">
 
                         <div class="label_gc">
                             <span class="legend">Finalidade:</span>
                             <label class="label">
-                                <input type="checkbox" name="sale"><span>Venda</span>
+                                <input type="checkbox" name="sale" {{ old('sale') == 'on' ? 'checked' : '' }}><span>Venda</span>
                             </label>
 
                             <label class="label">
-                                <input type="checkbox" name="rent"><span>Locação</span>
+                                <input type="checkbox" name="rent" {{ old('rent') == 'on' ? 'checked' : '' }}><span>Locação</span>
                             </label>
                         </div>
 
@@ -64,7 +79,7 @@
                                                 data-action="{{ route('admin.contracts.getDataOwner') }}">
                                             <option value="">Informe um Cliente</option>
                                             @foreach ($lessors->get() as $lessor)
-                                                <option value="{{ $lessor->id }}">{{ $lessor->name }} ({{ $lessor->document }})</option>
+                                                <option value="{{ $lessor->id }}" {{ old('owner') == $lessor->id ? 'selected' : '' }}>{{ $lessor->name }} ({{ $lessor->document }})</option>
                                             @endforeach
                                         </select>
                                     </label>
@@ -100,7 +115,7 @@
                                                 data-action="{{ route('admin.contracts.getDataAcquirer') }}">
                                             <option value="" selected>Informe um Cliente</option>
                                             @foreach ($lessees->get() as $lessee)
-                                                <option value="{{ $lessee->id }}">{{ $lessee->name }} ({{ $lessee->document }})</option>
+                                                <option value="{{ $lessee->id }}" {{ old('acquired') == $lessee->id ? 'selected' : '' }}>{{ $lessee->name }} ({{ $lessee->document }})</option>
                                             @endforeach
                                         </select>
                                     </label>
@@ -141,13 +156,13 @@
                                     <label class="label">
                                         <span class="legend">Valor de Venda:</span>
                                         <input type="tel" name="sale_price" class="mask-money"
-                                               placeholder="Valor de Venda" disabled/>
+                                               placeholder="Valor de Venda" {{ (old('sale') !== 'on' ? '' : 'disabled') }}/>
                                     </label>
 
                                     <label class="label">
                                         <span class="legend">Valor de Locação:</span>
                                         <input type="text" name="rent_price" class="mask-money"
-                                               placeholder="Valor de Locação" disabled/>
+                                               placeholder="Valor de Locação" {{ (old('rent') !== 'on' ? '' : 'disabled') }}/>
                                     </label>
                                 </div>
 
@@ -169,44 +184,44 @@
                                     <label class="label">
                                         <span class="legend">Dia de Vencimento:</span>
                                         <select name="due_date" class="select2">
-                                            <option value="1">1º</option>
-                                            <option value="2">2/mês</option>
-                                            <option value="3">3/mês</option>
-                                            <option value="4">4/mês</option>
-                                            <option value="5">5/mês</option>
-                                            <option value="6">6/mês</option>
-                                            <option value="7">7/mês</option>
-                                            <option value="8">8/mês</option>
-                                            <option value="9">9/mês</option>
-                                            <option value="10">10/mês</option>
-                                            <option value="11">11/mês</option>
-                                            <option value="12">12/mês</option>
-                                            <option value="13">13/mês</option>
-                                            <option value="14">14/mês</option>
-                                            <option value="15">15/mês</option>
-                                            <option value="16">16/mês</option>
-                                            <option value="17">17/mês</option>
-                                            <option value="18">18/mês</option>
-                                            <option value="19">19/mês</option>
-                                            <option value="20">20/mês</option>
-                                            <option value="21">21/mês</option>
-                                            <option value="22">22/mês</option>
-                                            <option value="23">23/mês</option>
-                                            <option value="24">24/mês</option>
-                                            <option value="25">25/mês</option>
-                                            <option value="26">26/mês</option>
-                                            <option value="27">27/mês</option>
-                                            <option value="28">28/mês</option>
+                                            <option value="1" {{ (old('due_date') == 1 ? 'selected' : '') }}>1º</option>
+                                            <option value="2" {{ (old('due_date') == 2 ? 'selected' : '') }}>2/mês</option>
+                                            <option value="3" {{ (old('due_date') == 3 ? 'selected' : '') }}>3/mês</option>
+                                            <option value="4" {{ (old('due_date') == 4 ? 'selected' : '') }}>4/mês</option>
+                                            <option value="5" {{ (old('due_date') == 5 ? 'selected' : '') }}>5/mês</option>
+                                            <option value="6" {{ (old('due_date') == 6 ? 'selected' : '') }}>6/mês</option>
+                                            <option value="7" {{ (old('due_date') == 7 ? 'selected' : '') }}>7/mês</option>
+                                            <option value="8" {{ (old('due_date') == 8 ? 'selected' : '') }}>8/mês</option>
+                                            <option value="9" {{ (old('due_date') == 9 ? 'selected' : '') }}>9/mês</option>
+                                            <option value="10" {{ (old('due_date') == 10 ? 'selected' : '') }}>10/mês</option>
+                                            <option value="11" {{ (old('due_date') == 11 ? 'selected' : '') }}>11/mês</option>
+                                            <option value="12" {{ (old('due_date') == 12 ? 'selected' : '') }}>12/mês</option>
+                                            <option value="13" {{ (old('due_date') == 13 ? 'selected' : '') }}>13/mês</option>
+                                            <option value="14" {{ (old('due_date') == 14 ? 'selected' : '') }}>14/mês</option>
+                                            <option value="15" {{ (old('due_date') == 15 ? 'selected' : '') }}>15/mês</option>
+                                            <option value="16" {{ (old('due_date') == 16 ? 'selected' : '') }}>16/mês</option>
+                                            <option value="17" {{ (old('due_date') == 17 ? 'selected' : '') }}>17/mês</option>
+                                            <option value="18" {{ (old('due_date') == 18 ? 'selected' : '') }}>18/mês</option>
+                                            <option value="19" {{ (old('due_date') == 19 ? 'selected' : '') }}>19/mês</option>
+                                            <option value="20" {{ (old('due_date') == 20 ? 'selected' : '') }}>20/mês</option>
+                                            <option value="21" {{ (old('due_date') == 21 ? 'selected' : '') }}>21/mês</option>
+                                            <option value="22" {{ (old('due_date') == 22 ? 'selected' : '') }}>22/mês</option>
+                                            <option value="23" {{ (old('due_date') == 23 ? 'selected' : '') }}>23/mês</option>
+                                            <option value="24" {{ (old('due_date') == 24 ? 'selected' : '') }}>24/mês</option>
+                                            <option value="25" {{ (old('due_date') == 25 ? 'selected' : '') }}>25/mês</option>
+                                            <option value="26" {{ (old('due_date') == 26 ? 'selected' : '') }}>26/mês</option>
+                                            <option value="27" {{ (old('due_date') == 27 ? 'selected' : '') }}>27/mês</option>
+                                            <option value="28" {{ (old('due_date') == 28 ? 'selected' : '') }}>28/mês</option>
                                         </select>
                                     </label>
 
                                     <label class="label">
                                         <span class="legend">Prazo do Contrato (Em meses)</span>
                                         <select name="deadline" class="select2">
-                                            <option value="12">12 meses</option>
-                                            <option value="24">24 meses</option>
-                                            <option value="36">36 meses</option>
-                                            <option value="48">48 meses</option>
+                                            <option value="12" {{ (old('deadline') == 12 ? 'selected' : '') }}>12 meses</option>
+                                            <option value="24" {{ (old('deadline') == 24 ? 'selected' : '') }}>24 meses</option>
+                                            <option value="36" {{ (old('deadline') == 36 ? 'selected' : '') }}>36 meses</option>
+                                            <option value="48" {{ (old('deadline') == 48 ? 'selected' : '') }}>48 meses</option>
                                         </select>
                                     </label>
                                 </div>
@@ -214,7 +229,7 @@
                                 <label class="label">
                                     <span class="legend">Data de Início:</span>
                                     <input type="tel" name="start_at" class="mask-date" placeholder="Data de Início"
-                                           value=""/>
+                                           value="{{ old('start_at') }}"/>
                                 </label>
                             </div>
                         </div>
@@ -239,20 +254,15 @@
 @section('js')
     <script>
 
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
+        $(function() {
 
-    $(function(){
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
 
-        $('select[name="owner"]').change(function() {
-
-            var owner = $(this);
-
-            $.post(owner.data('action'), {user: owner.val()}, function (response) {
-
+            function setFieldOwner(response) {
                 // Spouse
                 $('select[name="owner_spouse"]').html('');
                 if (response.spouse) {
@@ -316,19 +326,12 @@
                         value: 0,
                         text: 'Não informado'
                     }));
-                }            
+                } 
+            }
 
-            }, 'json');
-        });
-
-        $('select[name="acquirer"]').change(function() {
-
-            var acquirer = $(this);
-
-            $.post(acquirer.data('action'), {user: acquirer.val()}, function (response) {
-
-                // Spouse
-                $('select[name="acquirer_spouse"]').html('');
+            function setFielAcquirer(response){
+            // Spouse
+            $('select[name="acquirer_spouse"]').html('');
                 if (response.spouse) {
                     $('select[name="acquirer_spouse"]').append($('<option>', {
                         value: 0,
@@ -368,17 +371,10 @@
                         value: 0,
                         text: 'Não informado'
                     }));
-                }                
+                }    
+            }
 
-            }, 'json');
-        });
-
-        $('select[name="property"]').change(function(){
-
-            var property = $(this);
-
-            $.post(property.data('action'), {property: property.val()}, function(response){
-
+            function setFieldProperty(response){
                 if(response.property != null){
                     $('input[name="sale_price"]').val(response.property.sale_price);
                     $('input[name="rent_price"]').val(response.property.rent_price);
@@ -390,8 +386,49 @@
                     $('input[name="tribute"]').val('0,00');
                     $('input[name="condominium"]').val('0,00');
                 }
-            }, 'json');
-        })
-    });
+            }
+        
+            $('select[name="owner"]').change(function() {
+                var owner = $(this);
+                $.post(owner.data('action'), {user: owner.val()}, function (response) {
+                    setFieldOwner(response);
+                }, 'json');
+            });
+
+            if($('select[name="owner"]').val() != 0) {
+                var owner = $('select[name="owner"]');
+                $.post(owner.data('action'), {user: owner.val()}, function (response) {
+                    setFieldOwner(response);
+                }, 'json');
+            }
+
+            $('select[name="acquirer"]').change(function() {
+                var acquirer = $(this);
+                $.post(acquirer.data('action'), {user: acquirer.val()}, function (response) {          
+                    setFieldAcquirer(response);
+                }, 'json');
+            });
+
+            if($('select[name="acquirer"]').val() != 0) {
+                var acquirer = $('select[name="acquirer"]');
+                $.post(acquirer.data('action'), {user: acquirer.val()}, function (response) {
+                    setFieldAcquirer(response);
+                }, 'json');
+            }
+
+            $('select[name="property"]').change(function(){
+                var property = $(this);
+                $.post(property.data('action'), {property: property.val()}, function(response){
+                    setFieldProperty(response);
+                }, 'json');
+            })
+
+            if($('input[name="property_persist"]').val() > 0) {
+                var property = $('select[name="property"]');
+                $.post(property.data('action'), {property: $('input[name="property_persist"]').val()}, function (response) {
+                    setFieldProperty(response);
+                }, 'json');
+            }
+        });
     </script>
 @endsection

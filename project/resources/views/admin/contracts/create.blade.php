@@ -131,7 +131,8 @@
                             <div class="app_collapse_content">
                                 <label class="label">
                                     <span class="legend">Imóvel:</span>
-                                    <select name="property" class="select2">
+                                    <select name="property" class="select2"
+                                            data-action="{{ route('admin.contracts.getDataProperty') }}">
                                         <option value="">Não informado</option>
                                     </select>
                                 </label>
@@ -293,7 +294,29 @@
                         value: 0,
                         text: 'Não informado'
                     }));
-                }           
+                }
+
+                // Properties
+                $('select[name="property"]').html('');
+                if (response.properties != null && response.properties.length) {
+                    $('select[name="property"]').append($('<option>', {
+                        value: 0,
+                        text: 'Não informar'
+                    }));
+
+                    $.each(response.properties, function (key, value) {
+                        $('select[name="property"]').append($('<option>', {
+                            value: value.id,
+                            text: value.description
+                        }));
+                    });
+
+                } else {
+                    $('select[name="property"]').append($('<option>', {
+                        value: 0,
+                        text: 'Não informado'
+                    }));
+                }            
 
             }, 'json');
         });
@@ -349,6 +372,26 @@
 
             }, 'json');
         });
+
+        $('select[name="property"]').change(function(){
+
+            var property = $(this);
+
+            $.post(property.data('action'), {property: property.val()}, function(response){
+
+                if(response.property != null){
+                    $('input[name="sale_price"]').val(response.property.sale_price);
+                    $('input[name="rent_price"]').val(response.property.rent_price);
+                    $('input[name="tribute"]').val(response.property.tribute);
+                    $('input[name="condominium"]').val(response.property.condominium);
+                } else {
+                    $('input[name="sale_price"]').val('0,00');
+                    $('input[name="rent_price"]').val('0,00');
+                    $('input[name="tribute"]').val('0,00');
+                    $('input[name="condominium"]').val('0,00');
+                }
+            }, 'json');
+        })
     });
     </script>
 @endsection

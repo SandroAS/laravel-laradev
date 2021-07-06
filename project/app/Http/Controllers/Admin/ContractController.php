@@ -4,6 +4,7 @@ namespace LaraDev\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use LaraDev\Http\Controllers\Controller;
+use LaraDev\Property;
 use LaraDev\User;
 
 class ContractController extends Controller
@@ -123,22 +124,22 @@ class ContractController extends Controller
                 'document_company'
             ]);
 
-            // $getProperties = $lessor->properties()->get();
+            $getProperties = $lessor->properties()->get();
 
-            // $property = [];
-            // foreach($getProperties as $property) {
-            //     $properties[] = [
-            //         'id' => $property->id,
-            //         'description' => '#' . $property->id . ' ' . $property->street . ', ' .
-            //             $property->number . ' ' . $property->neighborhood . ' ' .
-            //             $property->city . '/' . $property->state . ' (' . $property->zipcode . ')'
-            //     ];
-            // }
+            $property = [];
+            foreach($getProperties as $property) {
+                $properties[] = [
+                    'id' => $property->id,
+                    'description' => '#' . $property->id . ' ' . $property->street . ', ' .
+                        $property->number . ' ' . $property->neighborhood . ' ' .
+                        $property->city . '/' . $property->state . ' (' . $property->zipcode . ')'
+                ];
+            }
         }
 
         $json['spouse'] = $spouse;
         $json['companies'] = (!empty($companies) && $companies->count() ? $companies : null);
-        //$json['properties'] = (!empty($properties) ? $properties : null);
+        $json['properties'] = (!empty($properties) ? $properties : null);
 
         return response()->json($json);
     }
@@ -185,6 +186,21 @@ class ContractController extends Controller
 
     public function getDataProperty(Request $request)
     {
-        
+        $property = Property::where('id', $request->property)->first();
+
+        if(empty($property)){
+            $property = null;
+        } else {
+            $property = [
+                'id' => $property->id,
+                'sale_price' => $property->sale_price,
+                'rent_price' => $property->rent_price,
+                'tribute' => $property->tribute,
+                'condominium' => $property->condominium,
+            ];
+        }
+
+        $json['property'] = $property;
+        return response()->json($json);
     }
 }

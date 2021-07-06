@@ -4,6 +4,7 @@ namespace LaraDev\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use LaraDev\Http\Controllers\Controller;
+use LaraDev\User;
 
 class ContractController extends Controller
 {
@@ -24,7 +25,12 @@ class ContractController extends Controller
      */
     public function create()
     {
-        return view('admin.contracts.create');
+        $lessors = User::lessors();
+        $lessees = User::lessees();
+        return view('admin.contracts.create', [
+            'lessors' => $lessors,
+            'lessees' => $lessees,
+        ]);
     }
 
     /**
@@ -81,5 +87,54 @@ class ContractController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function getDataOwner(Request $request)
+    {
+        $lessor = User::where('id', $request->user)->first([
+            'id',
+            'civil_status',
+            'spouse_name',
+            'spouse_document',
+        ]);
+        
+        if(empty($lessor)){
+            $spouse = null;
+        } else {
+            $civilStatusSpouseRequired = [
+                'married',
+                'separated',
+            ];
+
+            if (in_array($lessor->civil_status, $civilStatusSpouseRequired)) {
+                $spouse = [
+                    'spouse_name' => $lessor->spouse_name,
+                    'spouse_document' => $lessor->spouse_document,
+                ];
+            } else {
+                $spouse = null;
+            }
+        }
+
+        $companies = $lessor->companies()->get([
+            'id',
+            'alias_name',
+            'document_company'
+        ]);
+
+        $json['spouse'] = $spouse;
+        $json['companies'] = $companies;
+
+        return response()->json($json);
+    }
+
+    public function getDataAcquirer()
+    {
+        
+    }
+
+    public function getDataProperty()
+    {
+        
     }
 }

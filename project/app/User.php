@@ -96,6 +96,16 @@ class User extends Authenticatable
         return '';
     }
 
+    public function scopeLessors($query)
+    {
+        return $query->where('lessor', true);
+    }
+
+    public function scopeLessees($query)
+    {
+        return $query->where('lessee', true);
+    }
+
     public function setLessorAttribute($value)
     {
         $this->attributes['lessor'] = ($value === true || $value === 'on' ? 1 : 0);

@@ -82,6 +82,16 @@ class Property extends Model
         return Storage::url(Cropper::thumb($cover['path'], 1366, 768));
     }
 
+    public function scopeAvailable($query)
+    {
+        return $query->where('status', 1);
+    }
+
+    public function scopeUnavailable($query)
+    {
+        return $query->where('status', 0);
+    }
+
     public function setSaleAttribute($value)
     {
         $this->attributes['sale'] = ($value == true || $value == 'on' ? 1 : 0);

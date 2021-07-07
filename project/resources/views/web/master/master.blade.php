@@ -8,12 +8,9 @@
 
     {{-- {!! $head ?? '' !!} --}}
 
-    {{-- {{ url(asset('frontend/assets/css/bootstrap.css')) }} --}}
-    <link rel="stylesheet" href="">
-    {{-- {{ url(asset('frontend/assets/libs/libs.css')) }} --}}
-    <link rel="stylesheet" href="">
-    {{-- {{ url(asset('frontend/assets/css/app.css')) }} --}}
-    <link rel="stylesheet" href="" >
+    <link rel="stylesheet" href="{{ url(asset('frontend/assets/css/bootstrap.css')) }}">
+    <link rel="stylesheet" href="{{ url(asset('frontend/assets/libs/libs.css')) }}">
+    <link rel="stylesheet" href="{{ url(asset('frontend/assets/css/app.css')) }}" >
 
     @hasSection('css')
         @yield('css')
@@ -23,7 +20,7 @@
 
 
     {{-- {{ url(asset('frontend/assets/images/favicon.png')) }} --}}
-    <link rel="icon" type="image/png" href=""/>
+    <link rel="icon" type="image/png" href="assets/images/favicon.png"/>
 </head>
 <body>
 

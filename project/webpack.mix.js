@@ -12,6 +12,37 @@ const mix = require('laravel-mix');
  */
 
 mix
+   //Assets Web
+   .sass('resources/views/web/assets/scss/bootstrap_person.scss', 'public/frontend/assets/css/bootstrap.css')
+
+   .styles([
+      'resources/views/web/assets/libs/lightbox/ekko-lightbox.css'
+   ], 'public/frontend/assets/libs/libs.css')
+
+   .sass('resources/views/web/assets/scss/app.scss', 'public/frontend/assets/css/app.css')
+
+   .scripts([
+      'resources/views/web/assets/js/jqyery-3.3.1.min.js'
+   ], 'public/frontend/assets/js/jquery.js')
+
+   .scripts([
+      'node_modules/bootstrap/dist/js/bootstrap.bundle.js'
+   ], 'public/frontend/assets/js/bootstrap.js')
+
+   .scripts([
+      'resources/views/web/assets/libs/lightbox/ekko-lightbox.min.js'
+   ], 'public/frontend/assets/libs/libs.js')
+
+   .scripts([
+      'node_modules/bootstrap-select/dist/js/bootstrap-select.min.js',
+      'node_modules/bootstrap-select/dist/js/i18n/defaults-pt_BR.min.js'
+   ], 'public/frontend/assets/js/libs.js')
+
+   .copyDirectory('resources/views/web/assets/css/fonts', 'public/frontend/assets/css/fonts')
+   .copyDirectory('resources/views/web/assets/images', 'public/frontend/assets/images')
+   .copyDirectory('resources/views/web/properties', 'public/frontend/properties')
+
+   //Assets Admin
    .sass('resources/views/admin/assets/scss/reset.scss', 'public/backend/assets/css/reset.css')
    .sass('resources/views/admin/assets/scss/boot.scss', 'public/backend/assets/css/boot.css')
    .sass('resources/views/admin/assets/scss/login.scss', 'public/backend/assets/css/login.css')

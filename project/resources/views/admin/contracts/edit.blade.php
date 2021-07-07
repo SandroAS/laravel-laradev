@@ -323,7 +323,7 @@
                     <div id="terms" class="d-none">
                         <h3 class="mb-2">Termos</h3>
 
-                        <textarea name="terms" cols="30" rows="10" class="mce"></textarea>
+                        <textarea name="terms" cols="30" rows="10" class="mce">{{ $contract->terms() }}</textarea>
                     </div>
                 </div>
             </div>

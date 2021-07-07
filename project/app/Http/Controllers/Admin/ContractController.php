@@ -18,7 +18,11 @@ class ContractController extends Controller
      */
     public function index()
     {
-        return view('admin.contracts.index');
+        $contracts = Contract::with('ownerObject', 'acquirerObject')->orderBy('id', 'DESC')->get();
+
+        return view('admin.contracts.index', [
+            'contracts' => $contracts
+        ]);
     }
 
     /**

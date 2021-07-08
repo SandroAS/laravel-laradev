@@ -31,35 +31,32 @@
                     </div>
                     <div class="form-group col-12 col-sm-6 col-lg-3">
                         <label for="category" class="mb-2"><b>O que você quer?</b></label>
-                        {{-- {{ route('component.main-filter.category') }} --}}
-                        <select class="selectpicker" id="category" name="filter_category" title="Escolha..." data-index="2" data-action="">
+                        <select class="selectpicker" id="category" name="filter_category" title="Escolha..." data-index="2" 
+                                data-action="{{ route('component.main-filter.category') }}">
                             <option disabled>Selecione o filtro anterior</option>
                         </select>
                     </div>
-
                     <div class="form-group col-12 col-sm-6 mt-sm-2 mt col-lg-3 mt-lg-0">
                         <label for="type" class="mb-2 d-block"><b>Qual o tipo do imóvel?</b></label>
-                        {{-- {{ route('component.main-filter.type') }} --}}
-                        <select class="selectpicker input-large" id="type" name="filter_type" multiple data-actions-box="true" title="Escolha..." data-index="3" data-action="">
+                        <select class="selectpicker input-large" id="type" name="filter_type" multiple data-actions-box="true" title="Escolha..." data-index="3" 
+                                data-action="{{ route('component.main-filter.type') }}">
                             <option disabled>Selecione o filtro anterior</option>
                         </select>
                     </div>
                     <div class="form-group col-12 col-sm-6 mt-sm-2 col-lg-3 mt-lg-0">
                         <label for="search_locale" class="mb-2"><b>Onde você quer?</b></label>
-                        {{-- {{ route('component.main-filter.neighborhood') }} --}}
-                        <select class="selectpicker" name="filter_neighborhood" id="neighborhood" title="Escolha..." data-index="4" data-action="" multiple
-                                data-actions-box="true">
+                        <select class="selectpicker" id="neighborhood" name="filter_neighborhood" multiple data-actions-box="true" title="Escolha..." data-index="4" 
+                                data-action="{{ route('component.main-filter.neighborhood') }}">
                             <option disabled>Selecione o filtro anterior</option>
                         </select>
                     </div>
 
                     <div class="col-12 mt-3 form_advanced" style="display: none;">
-
                         <div class="row">
                             <div class="form-group col-12 col-sm-6 mt-sm-2 col-lg-3 mt-lg-0">
                                 <label for="bedrooms" class="mb-2"><b>Quartos</b></label>
-                                {{-- {{ route('component.main-filter.bedrooms') }} --}}
-                                <select class="selectpicker" name="filter_bedrooms" data-index="5" data-action="" id="bedrooms" title="Escolha...">
+                                <select class="selectpicker" name="filter_bedrooms" data-index="5" 
+                                        data-action="{{ route('component.main-filter.bedrooms') }}" id="bedrooms" title="Escolha...">
                                     <option disabled>Selecione o filtro anterior</option>
                                 </select>
                             </div>

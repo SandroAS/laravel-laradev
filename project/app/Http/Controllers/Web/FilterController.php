@@ -34,7 +34,6 @@ class FilterController extends Controller
         $json['success'] = true;
 
         return response()->json($this->setResponse('fail', [], 'Ooops, não foi retornado nenhum dado para essa pesquisa!'));
-//modify
     }
 
     private function setResponse(string $status, array $data = null, string $message = null)

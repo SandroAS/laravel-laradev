@@ -203,60 +203,49 @@
 
             <div class="row">
 
-                {{-- @if($propertiesForSale->count()) --}}
-                    {{-- @foreach($propertiesForSale as $property) --}}
+                @if($propertiesForSale->count())
+                     @foreach($propertiesForSale as $property)
                         <div class="col-12 col-md-6 col-lg-4 mb-4">
                             <article class="card main_properties_item">
                                 <div class="img-responsive-16by9">
-                                    {{-- {{ route('web.buyProperty', ['property' => $property->slug]) }} --}}
-                                    <a href="">
-                                        {{-- {{ $property->cover() }} --}}
-                                        <img src="" class="card-img-top"
-                                             alt="">
+                                    <a href="{{ route('web.buyProperty', ['property' => $property->slug]) }}">
+                                        <img src="{{ $property->cover() }}" class="card-img-top" alt="">
                                     </a>
                                 </div>
                                 <div class="card-body">
                                     <h2>
-                                        {{-- {{ route('web.buyProperty', ['property' => $property->slug]) }} --}}
-                                        <a href=""
-                                           {{-- class="text-front">{{ $property->title }}</a> --}}
+                                        <a href="{{ route('web.buyProperty', ['property' => $property->slug]) }}" 
+                                           class="text-front">{{ $property->title }}</a>
                                     </h2>
-                                    {{-- {{ $property->category }} --}}
-                                    <p class="main_properties_item_category"></p>
-                                    {{-- {{ $property->type }} --}}
+                                    <p class="main_properties_item_category">{{ $property->category }}</p>
                                     <p class="main_properties_item_type">
-                                        {{-- {{ $property->neighborhood }} --}}
-                                        -  <i
-                                                class="icon-location-arrow icon-notext"></i></p>
-                                                {{-- {{ $property->sale_price }} --}}
-                                    <p class="main_properties_price text-front">R$ </p>
-                                    {{-- {{ route('web.buyProperty', ['property' => $property->slug]) }} --}}
-                                    <a href=""
+                                        {{ $property->type }} - {{ $property->neighborhood }} 
+                                        <i class="icon-location-arrow icon-notext"></i>
+                                    </p>
+                                    <p class="main_properties_price text-front">R$ {{ $property->sale_price }}</p>
+                                    <a href="{{ route('web.buyProperty', ['property' => $property->slug]) }}"
                                        class="btn btn-front btn-block">Ver Imóvel</a>
                                 </div>
                                 <div class="card-footer d-flex">
                                     <div class="main_properties_features col-4 text-center">
                                         <img src="frontend/assets/images/icons/bed.png" class="img-fluid" alt="">
-                                        {{-- {{ $property->bedrooms }} --}}
-                                        <p class="text-muted"></p>
+                                        <p class="text-muted">{{ $property->bedrooms }}</p>
                                     </div>
 
                                     <div class="main_properties_features col-4 text-center">
                                         <img src="frontend/assets/images/icons/garage.png" class="img-fluid" alt="">
-                                        {{-- {{ $property->garage + $property->garage_covered }} --}}
-                                        <p class="text-muted"></p>
+                                        <p class="text-muted">{{ $property->garage + $property->garage_covered }}</p>
                                     </div>
 
                                     <div class="main_properties_features col-4 text-center">
                                         <img src="frontend/assets/images/icons/util-area.png" class="img-fluid" alt="">
-                                        {{-- {{ $property->area_util }} --}}
-                                        <p class="text-muted"> m&sup2;</p>
+                                        <p class="text-muted">{{ $property->area_util }}m&sup2;</p>
                                     </div>
                                 </div>
                             </article>
                         </div>
-                    {{-- @endforeach --}}
-                {{-- @endif --}}
+                    @endforeach
+                @endif
 
             </div>
         </div>
@@ -272,59 +261,48 @@
 
             <div class="row">
 
-                {{-- @if($propertiesForRent->count()) --}}
-                    {{-- @foreach($propertiesForSale as $property) --}}
+                @if($propertiesForRent->count())
+                    @foreach($propertiesForSale as $property)
                         <div class="col-12 col-md-6 col-lg-4 mb-4">
                             <article class="card main_properties_item">
                                 <div class="img-responsive-16by9">
-                                    {{-- <a href="{{ route('web.rentProperty', ['property' => $property->slug]) }}"> --}}
-                                        {{-- {{ $property->cover() }} --}}
-                                        <img src="" class="card-img-top"
-                                             alt="">
+                                    <a href="{{ route('web.rentProperty', ['property' => $property->slug]) }}">
+                                        <img src="{{ $property->cover() }}" class="card-img-top" alt="">
                                     </a>
                                 </div>
                                 <div class="card-body">
-                                    {{-- {{ route('web.rentProperty', ['property' => $property->slug]) }} --}}
-                                    <h2><a href=""
-                                        {{-- {{ $property->title }} --}}
-                                           class="text-front"></a>
+                                    <h2>
+                                        <a href="{{ route('web.rentProperty', ['property' => $property->slug]) }}"
+                                           class="text-front">{{ $property->title }}</a>
                                     </h2>
-                                    {{-- {{ $property->category }} --}}
-                                    <p class="main_properties_item_category"></p>
-                                    {{-- {{ $property->type }} --}}
+                                    <p class="main_properties_item_category">{{ $property->category }}</p>
                                     <p class="main_properties_item_type">
-                                        {{-- {{ $property->neighborhood }} --}}
-                                        -  <i
-                                                class="icon-location-arrow icon-notext"></i></p>
-                                                {{-- {{ $property->rent_price }} --}}
-                                    <p class="main_properties_price text-front">R$ /mês</p>
-                                    {{-- {{ route('web.rentProperty', ['property' => $property->slug]) }} --}}
-                                    <a href=""
+                                        {{ $property->type }} - {{ $property->neighborhood }}
+                                        <i class="icon-location-arrow icon-notext"></i>
+                                    </p>
+                                    <p class="main_properties_price text-front">R$ {{ $property->rent_price }}/mês</p>
+                                    <a href="{{ route('web.rentProperty', ['property' => $property->slug]) }}"
                                        class="btn btn-front btn-block">Ver Imóvel</a>
                                 </div>
                                 <div class="card-footer d-flex">
                                     <div class="main_properties_features col-4 text-center">
                                         <img src="frontend/assets/images/icons/bed.png" class="img-fluid" alt="">
-                                        {{-- {{ $property->bedrooms }} --}}
-                                        <p class="text-muted"></p>
+                                        <p class="text-muted">{{ $property->bedrooms }}</p>
                                     </div>
-
                                     <div class="main_properties_features col-4 text-center">
                                         <img src="frontend/assets/images/icons/garage.png" class="img-fluid" alt="">
-                                        {{-- {{ $property->garage + $property->garage_covered }} --}}
-                                        <p class="text-muted"></p>
+                                        <p class="text-muted">{{ $property->garage + $property->garage_covered }}</p>
                                     </div>
 
                                     <div class="main_properties_features col-4 text-center">
                                         <img src="frontend/assets/images/icons/util-area.png" class="img-fluid" alt="">
-                                        {{-- {{ $property->area_util }} --}}
-                                        <p class="text-muted"> m&sup2;</p>
+                                        <p class="text-muted">{{ $property->area_util }}m&sup2;</p>
                                     </div>
                                 </div>
                             </article>
                         </div>
-                    {{-- @endforeach --}}
-                {{-- @endif --}}
+                    @endforeach
+                @endif
 
             </div>
         </div>

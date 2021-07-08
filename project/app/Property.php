@@ -96,6 +96,16 @@ class Property extends Model
         return $query->where('status', 0);
     }
 
+    public function scopeSale($query)
+    {
+        return $query->where('sale', 1);
+    }
+
+    public function scopeRent($query)
+    {
+        return $query->where('rent', 1);
+    }
+
     public function setSaleAttribute($value)
     {
         $this->attributes['sale'] = ($value == true || $value == 'on' ? 1 : 0);

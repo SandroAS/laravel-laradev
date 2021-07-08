@@ -50,7 +50,6 @@
                             <option disabled>Selecione o filtro anterior</option>
                         </select>
                     </div>
-
                     <div class="col-12 mt-3 form_advanced" style="display: none;">
                         <div class="row">
                             <div class="form-group col-12 col-sm-6 mt-sm-2 col-lg-3 mt-lg-0">
@@ -60,45 +59,40 @@
                                     <option disabled>Selecione o filtro anterior</option>
                                 </select>
                             </div>
-
                             <div class="form-group col-12 col-sm-6 mt-sm-2 col-lg-3 mt-lg-0">
                                 <label for="bedrooms" class="mb-2"><b>Suítes</b></label>
-                                {{-- {{ route('component.main-filter.suites') }} --}}
-                                <select class="selectpicker" name="filter_suites" id="suites" title="Escolha..." data-index="6" data-action="">
+                                <select class="selectpicker" name="filter_suites" id="suites" title="Escolha..." data-index="6" 
+                                        data-action="{{ route('component.main-filter.suites') }}">
                                     <option disabled>Selecione o filtro anterior</option>
                                 </select>
                             </div>
-
                             <div class="form-group col-12 col-sm-6 mt-sm-2 col-lg-3 mt-lg-0">
                                 <label for="bedrooms" class="mb-2"><b>Banheiros</b></label>
-                                {{-- {{ route('component.main-filter.bathrooms') }} --}}
-                                <select class="selectpicker" name="filter_bathrooms" id="bathrooms" title="Escolha..." data-index="7" data-action="">
+                                <select class="selectpicker" name="filter_bathrooms" id="bathrooms" title="Escolha..." data-index="7" 
+                                        data-action="{{ route('component.main-filter.bathrooms') }}">
                                     <option disabled>Selecione o filtro anterior</option>
                                 </select>
                             </div>
-
                             <div class="form-group col-12 col-sm-6 mt-sm-2 col-lg-3 mt-lg-0">
                                 <label for="bedrooms" class="mb-2"><b>Garagem</b></label>
-                                {{-- {{ route('component.main-filter.garage') }} --}}
-                                <select class="selectpicker" name="filter_garage" id="garage" title="Escolha..." data-index="8" data-action="">
+                                <select class="selectpicker" name="filter_garage" id="garage" title="Escolha..." data-index="8" 
+                                        data-action="{{ route('component.main-filter.garage') }}">
                                     <option disabled>Selecione o filtro anterior</option>
                                 </select>
                             </div>
                         </div>
-
                         <div class="row mt-3">
                             <div class="form-group col-12 col-sm-6 mt-sm-2 col-lg-6 mt-lg-0">
                                 <label for="bedrooms" class="mb-2"><b>Preço Base</b></label>
-                                {{-- {{ route('component.main-filter.priceBase') }} --}}
-                                <select class="selectpicker" name="filter_base" id="base" title="Escolha..." data-index="9" data-action="">
+                                <select class="selectpicker" name="filter_base" id="base" title="Escolha..." data-index="9" 
+                                        data-action="{{ route('component.main-filter.priceBase') }}">
                                     <option disabled>Selecione o filtro anterior</option>
                                 </select>
                             </div>
-
                             <div class="form-group col-12 col-sm-6 mt-sm-2 col-lg-6 mt-lg-0">
                                 <label for="bedrooms" class="mb-2"><b>Preço Limite</b></label>
-                                {{-- {{ route('component.main-filter.priceLimit') }} --}}
-                                <select class="selectpicker" name="filter_limit" id="limit" title="Escolha..." data-index="10" data-action="">
+                                <select class="selectpicker" name="filter_limit" id="limit" title="Escolha..." data-index="10" 
+                                        data-action="{{ route('component.main-filter.priceLimit') }}">
                                     <option disabled>Selecione o filtro anterior</option>
                                 </select>
                             </div>

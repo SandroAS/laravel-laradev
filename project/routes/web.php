@@ -29,7 +29,7 @@ Route::group(['namespace' => 'Web', 'as' => 'web.'], function(){
     Route::get('/quero-comprar/{slug}', 'WebController@buyProperty')->name('buyProperty');
 
     /** Página Inicial */
-    Route::get('/filtro', 'WebController@filter')->name('filter');
+    Route::match(['post', 'get'], '/filtro', 'WebController@filter')->name('filter');
 
     /** Página Inicial */
     Route::get('/contato', 'WebController@contact')->name('contact');

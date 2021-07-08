@@ -18,8 +18,7 @@
     <div class="main_filter">
         <div class="container my-5">
             <div class="row">
-                {{-- {{ route('web.filter') }} --}}
-                <form action="" method="post" class="form-inline w-100">
+                <form action="{{ route('web.filter') }}" method="post" class="form-inline w-100">
                     @csrf
                     <div class="form-group col-12 col-sm-6 col-lg-3">
                         <label for="search" class="mb-2"><b>Comprar ou Alugar?</b></label>
@@ -186,8 +185,7 @@
         <div class="container">
             <header class="d-flex justify-content-between align-items-center border-bottom border-front mb-5">
                 <h1 class="text-front">À Venda</h1>
-                {{-- {{ route('web.buy') }} --}}
-                <a href="" class="text-front">Ver mais</a>
+                <a href="{{ route('web.buy') }}" class="text-front">Ver mais</a>
             </header>
 
             <div class="row">
@@ -244,8 +242,7 @@
         <div class="container">
             <header class="d-flex justify-content-between align-items-center border-bottom border-front mb-5">
                 <h1 class="text-front">Para Alugar</h1>
-                {{-- {{ route('web.rent') }} --}}
-                <a href="" class="text-front">Ver mais</a>
+                <a href="{{ route('web.rent') }}" class="text-front">Ver mais</a>
             </header>
 
             <div class="row">

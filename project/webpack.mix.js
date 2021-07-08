@@ -12,31 +12,35 @@ const mix = require('laravel-mix');
  */
 
 mix
-   //Assets Web
+   // Assets Web
    .sass('resources/views/web/assets/scss/bootstrap_person.scss', 'public/frontend/assets/css/bootstrap.css')
 
    .styles([
-      'resources/views/web/assets/libs/lightbox/ekko-lightbox.css'
+       'resources/views/web/assets/libs/lightbox/ekko-lightbox.css'
    ], 'public/frontend/assets/libs/libs.css')
 
    .sass('resources/views/web/assets/scss/app.scss', 'public/frontend/assets/css/app.css')
 
    .scripts([
-      'resources/views/web/assets/js/jqyery-3.3.1.min.js'
+       'resources/views/web/assets/js/jquery-3.3.1.min.js'
    ], 'public/frontend/assets/js/jquery.js')
 
    .scripts([
-      'node_modules/bootstrap/dist/js/bootstrap.bundle.js'
+       'node_modules/bootstrap/dist/js/bootstrap.bundle.js'
    ], 'public/frontend/assets/js/bootstrap.js')
 
    .scripts([
-      'resources/views/web/assets/libs/lightbox/ekko-lightbox.min.js'
+       'resources/views/web/assets/libs/lightbox/ekko-lightbox.min.js'
    ], 'public/frontend/assets/libs/libs.js')
 
    .scripts([
-      'node_modules/bootstrap-select/dist/js/bootstrap-select.min.js',
-      'node_modules/bootstrap-select/dist/js/i18n/defaults-pt_BR.min.js'
+       'node_modules/bootstrap-select/dist/js/bootstrap-select.min.js',
+       'node_modules/bootstrap-select/dist/js/i18n/defaults-pt_BR.min.js'
    ], 'public/frontend/assets/js/libs.js')
+
+   .scripts([
+       'resources/views/web/assets/js/scripts.js'
+   ], 'public/frontend/assets/js/scripts.js')
 
    .copyDirectory('resources/views/web/assets/css/fonts', 'public/frontend/assets/css/fonts')
    .copyDirectory('resources/views/web/assets/images', 'public/frontend/assets/images')

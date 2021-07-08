@@ -200,8 +200,8 @@
 
                         <div class="main_property_contact">
                             <h2 class="bg-front text-white">Entre em contato</h2>
-
-                            <form action="{{ route('web.sendEmail') }}" method="post" autocomplete="off">
+                            {{-- {{ route('web.sendEmail') }} --}}
+                            <form action="" method="post" autocomplete="off">
                                 @csrf
                                 <div class="form-group">
                                     <label for="name">Seu nome:</label>
@@ -258,12 +258,12 @@
                 var citymap = {
                     property: {
                         center: {lat: lat, lng: lng},
-                        population: 100
+                        population: 1
                     }
                 };
 
                 var map = new google.maps.Map(document.getElementById('map'), {
-                    zoom: 14,
+                    zoom: 17,
                     center: {lat: lat, lng: lng},
                     mapTypeId: 'terrain'
                 });

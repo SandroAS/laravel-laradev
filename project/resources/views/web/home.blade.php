@@ -8,10 +8,8 @@
                     <p class="main_slide_content text-white">Encontre o <b>Imóvel ideal</b> para você e <b>sua
                             família</b>
                         morar na praia!</p>
-                        {{-- {{ route('web.rent') }}
-                        {{ route('web.buy') }} --}}
-                    <a href="" class="btn btn-front btn-lg text-white">Quero <b>Alugar</b>!</a>
-                    <a href="" class="btn btn-front btn-lg text-white">Quero <b>Comprar</b>!</a>
+                    <a href="{{ route('web.rent') }}" class="btn btn-front btn-lg text-white">Quero <b>Alugar</b>!</a>
+                    <a href="{{ route('web.buy') }}" class="btn btn-front btn-lg text-white">Quero <b>Comprar</b>!</a>
                 </div>
             </div>
         </div>
@@ -25,8 +23,8 @@
                     @csrf
                     <div class="form-group col-12 col-sm-6 col-lg-3">
                         <label for="search" class="mb-2"><b>Comprar ou Alugar?</b></label>
-                        {{-- {{ route('component.main-filter.search') }} --}}
-                        <select class="selectpicker" id="search" name="filter_search" title="Escolha..." data-index="1" data-action="">
+                        <select class="selectpicker" id="search" name="filter_search" title="Escolha..." data-index="1" 
+                                data-action="{{ route('component.main-filter.search') }}">
                             <option value="buy">Comprar</option>
                             <option value="rent">Alugar</option>
                         </select>

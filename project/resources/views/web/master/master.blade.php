@@ -18,9 +18,7 @@
 
         {{-- <meta name="csrf-token" content="{{ csrf_token() }}"> --}}
 
-
-    {{-- {{ url(asset('frontend/assets/images/favicon.png')) }} --}}
-    <link rel="icon" type="image/png" href="assets/images/favicon.png"/>
+    <link rel="icon" type="image/png" href="{{ url(asset('frontend/assets/images/favicon.png')) }}"/>
 </head>
 <body>
 
@@ -55,8 +53,7 @@
             <div class="navbar-brand"> 
                 <a href="{{ route('web.home') }}">
                     <h1 class="text-hide">Imobiliária</h1>
-                    {{-- {{ url(asset('frontend/assets/images/logo.png')) }} --}}
-                    <img src="" width="280" alt="Imobiliária" class="d-inline-block">
+                    <img src="{{ url(asset('frontend/assets/images/logo.png')) }}" width="280" alt="Imobiliária" class="d-inline-block">
                 </a>
             </div>
 
@@ -100,8 +97,7 @@
 </article>
 
 <section class="main_footer bg-light"
-{{-- {{ asset('frontend/assets/images/footer.png') }} --}}
-         style="background: url() repeat-x bottom center; background-size: 10%;">
+         style="background: url({{ asset('frontend/assets/images/footer.png') }}) repeat-x bottom center; background-size: 10%;">
     <div class="container pt-5" style="padding-bottom: 120px;">
 
         <div class="row d-flex justify-content-around text-muted">

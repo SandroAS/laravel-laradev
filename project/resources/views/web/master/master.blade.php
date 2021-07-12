@@ -6,7 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    {{-- {!! $head ?? '' !!} --}}
+    {!! $head ?? '' !!}
 
     <link rel="stylesheet" href="{{ url(asset('frontend/assets/css/bootstrap.css')) }}">
     <link rel="stylesheet" href="{{ url(asset('frontend/assets/libs/libs.css')) }}">

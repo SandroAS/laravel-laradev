@@ -16,6 +16,9 @@ Route::group(['namespace' => 'Web', 'as' => 'web.'], function(){
     /** Página Inicial */
     Route::get('/', 'WebController@home')->name('home');
 
+    /** Página Destaque */
+    Route::get('/destaque', 'WebController@spotlight')->name('spotlight');
+
     /** Página de Locação */
     Route::get('/quero-alugar', 'WebController@rent')->name('rent');
 

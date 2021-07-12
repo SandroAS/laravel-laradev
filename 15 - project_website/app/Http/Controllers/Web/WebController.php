@@ -24,17 +24,17 @@ class WebController extends Controller
         ]);
     }
 
-    // public function spotlight()
-    // {
-    //     $head = $this->seo->render(env('APP_NAME') . ' - UpInside Treinamentos',
-    //         'Confira nossos maiores empreendimentos e lançamentos no Sul da Ilha de Florianópolis!',
-    //         route('web.spotlight'),
-    //         asset('frontend/assets/images/share.png'));
+    public function spotlight()
+    {
+        $head = $this->seo->render(env('APP_NAME') . ' - UpInside Treinamentos',
+            'Confira nossos maiores empreendimentos e lançamentos no Sul da Ilha de Florianópolis!',
+            route('web.spotlight'),
+            asset('frontend/assets/images/share.png'));
 
-    //     return view('web.spotlight', [
-    //         'head' => $head
-    //     ]);
-    // }
+        return view('web.spotlight', [
+            'head' => $head
+        ]);
+    }
 
     public function rent()
     {

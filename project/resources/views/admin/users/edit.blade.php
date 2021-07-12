@@ -139,7 +139,7 @@
 
                             <label class="label">
                                 <span class="legend">Foto</span>
-                                <input type="file" name="cover">
+                                <input type="image" name="cover" id="cover">
                             </label>
                         </div>
 

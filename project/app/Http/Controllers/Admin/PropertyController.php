@@ -32,10 +32,9 @@ class PropertyController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($id)
+    public function create()
     {
         $users = User::orderBy('name')->get();
-        
         return view('admin.properties.create', [
             'users' => $users
         ]);
@@ -49,18 +48,32 @@ class PropertyController extends Controller
      */
     public function store(PropertyRequest $request)
     {
+        dd($request);
         $createProperty = Property::create($request->all());
 
         $createProperty->setSlug();
 
-        $validator = Validator::make($request->only('files'), ['files.*' => 'image']);
+        $validator = Validator::make($request->only('files'), ['files.*' => 'mimes:jpeg,png,jpg,gif,svg']);
 
-        if($validator->fails() === true) {
-            return redirect()->back()->withInput()->with(['color' => 'orange', 'message' => 'Todas as imagens devem ser do tipo jpg, jpeg ou png.']);
+        if ($validator->fails() === true) {
+            return redirect()->back()->withInput()->with([
+                'color' => 'orange',
+                'message' => 'Todas as imagens devem ser do tipo jpg, jpeg ou png.',
+            ]);
+        }
+
+        if ($request->allFiles()) {
+            foreach ($request->allFiles()['files'] as $image) {
+                $propertyImage = new PropertyImage();
+                $propertyImage->property = $createProperty->id;
+                $propertyImage->path = $image->store('properties/' . $createProperty->id);
+                $propertyImage->save();
+                unset($propertyImage);
+            }
         }
 
         return redirect()->route('admin.properties.edit', [
-            'property' => $createProperty->id
+            'property' => $createProperty->id,
         ])->with(['color' => 'green', 'message' => 'Imóvel cadastrado com sucesso!']);
     }
 
@@ -126,7 +139,7 @@ class PropertyController extends Controller
         $property->save();
         $property->setSlug();
 
-        $validator = Validator::make($request->only('files'), ['files.*' => 'image']);
+        $validator = Validator::make($request->only('files'), ['files.*' => 'mimes:jpeg,png,jpg,gif,svg']);
 
         if($validator->fails() === true) {
             return redirect()->back()->withInput()->with(['color' => 'orange', 'message' => 'Todas as imagens devem ser do tipo jpg, jpeg ou png.']);

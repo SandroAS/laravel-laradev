@@ -85,6 +85,44 @@ class WebController extends Controller
         ]);
     }
 
+    public function experience()
+    {
+        $filter = new FilterController();
+        $filter->clearAllData();
+
+        $properties = Property::whereNotNull('experience')->get;
+
+        return view('web.filter', [
+            'properties' =>$properties
+        ]);
+    }
+
+    public function experienceCategory(Request $request)
+    {
+        $filter = new FilterController();
+        $filter->clearAllData();
+
+        if($request->slug == 'cobertura'){
+            $properties = Property::where('experience', 'Cobertura')->get();
+        } else if ($request->slug == 'alto-padrao'){
+            $properties = Property::where('experience', 'Alto Padrão')->get();
+        } else if ($request->slug == 'de-frente-para-o-mar'){
+            $properties = Property::where('experience', 'De Frente para o Mar')->get();
+        } else if ($request->slug == 'condominio-fechado'){
+            $properties = Property::where('experience', 'Condomínio Fechado')->get();
+        } else if ($request->slug == 'compacto'){
+            $properties = Property::where('experience', 'Compacto')->get();
+        } else if ($request->slug == 'lojas-e-salas'){
+            $properties = Property::where('experience', 'Lojas e Salas')->get();
+        } else {
+            $properties = Property::whereNotNull('experience')->get();
+        }
+
+        return view('web.filter', [
+            'properties' =>$properties
+        ]);
+    }
+
     public function contact()
     {
         return view('web.filter');

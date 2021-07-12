@@ -19,17 +19,23 @@ Route::group(['namespace' => 'Web', 'as' => 'web.'], function(){
     /** Página de Locação */
     Route::get('/quero-alugar', 'WebController@rent')->name('rent');
 
-    /** Página de Locação */
+    /** Página de Locação - Específica de um imóvel */
     Route::get('/quero-alugar/{slug}', 'WebController@rentProperty')->name('rentProperty');
 
     /** Página de Compra */
     Route::get('/quero-comprar', 'WebController@buy')->name('buy');
 
-    /** Página de Compra */
+    /** Página de Compra - Específica de um imóvel */
     Route::get('/quero-comprar/{slug}', 'WebController@buyProperty')->name('buyProperty');
 
     /** Página Inicial */
     Route::match(['post', 'get'], '/filtro', 'WebController@filter')->name('filter');
+
+    /** Página de Experiências */
+    Route::get('/experiencias', 'WebController@experience')->name('experience');
+
+    /** Página de Experiências - Específica de um imóvel */
+    Route::get('/experiencias/{slug}', 'WebController@experienceCategory')->name('experienceCategory');
 
     /** Página Inicial */
     Route::get('/contato', 'WebController@contact')->name('contact');
